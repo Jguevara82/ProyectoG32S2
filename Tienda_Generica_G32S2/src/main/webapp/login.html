@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda Generica</title>
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+	<header class="cont-header" id="cont-header">
+		<div class="logo-titulo" id="logo-titulo">
+			<h1 class="h1" id="h1">Tienda Generica</h1>
+		</div>
+	</header>
+	<fieldset class="cont_ingreso">
+		<legend>Bienvenidos</legend>
+		<form action="ServletLogin" method="GET">
+			<label for="">Usuario</label> 
+			<input type="text" name="usu" required="true">
+			<label for="">Contraseña</label> 
+			<input type="password" name="pass" required="true">
+			<input type="submit" name="btningreso" value="Ingresar">
+		</form>
+	</fieldset>
+</body>
+</html>
