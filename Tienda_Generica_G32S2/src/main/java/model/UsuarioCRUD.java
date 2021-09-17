@@ -70,12 +70,18 @@ public class UsuarioCRUD {
 		Boolean dat=false;
 		try {
 			
-			ps=cn.prepareStatement("UPDATE usuarios SET cedula_usuario='"+us.getCedula_usuario()+"',"
+			ps=cn.prepareStatement("UPDATE usuarios SET email_usuario=?, nombre_usuario=?, password=?, usuario=? WHERE cedula_usuario=?");
+			ps.setString(1, us.getEmail_usuario());
+			ps.setString(2, us.getNombre_usuario());
+			ps.setString(3, us.getPassword());
+			ps.setString(4, us.getUsuario());
+			ps.setFloat(5, us.getCedula_usuario());
+			/*ps=cn.prepareStatement("UPDATE usuarios SET cedula_usuario='"+us.getCedula_usuario()+"',"
 											+"email_usuario='"+us.getEmail_usuario()+"',"
 											+ "nombre_usuario='"+us.getNombre_usuario()+"',"
 											+ "password='"+us.getPassword()+"',"
 											+ "usuario='"+us.getUsuario()+"'"
-											+ "WHERE cedula_usuario='"+us.getCedula_usuario()+"'");
+											+ "WHERE cedula_usuario='"+us.getCedula_usuario()+"'");*/
 			x=ps.executeUpdate();
 			if (x>0) {
 				dat=true;
@@ -88,8 +94,9 @@ public class UsuarioCRUD {
 		}
 		
 		return dat;
-		
 	}
+		
+	
 	
 	public Usuarios buscardatosusuario(Usuarios us) {
 

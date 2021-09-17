@@ -40,6 +40,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 		String eu,nu, p, u;
 		Boolean t;
 		
+		
 		Usuarios usu;
 		
 		if (request.getParameter("btninsert")!=null) {
@@ -58,14 +59,14 @@ public class ServletCRUDUsuario extends HttpServlet {
 			if(t) {
 				
 				JOptionPane.showMessageDialog(null, "El usuario fue registrado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.html");
 				
 			}
 			
 			else {
 				
 				JOptionPane.showMessageDialog(null, "El usuario no fue registrado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.html");
 				
 			}
 		}
@@ -82,14 +83,14 @@ public class ServletCRUDUsuario extends HttpServlet {
 			if(t) {
 				
 				JOptionPane.showMessageDialog(null, "El usuario fue eliminado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.html");
 				
 			}
 			
 			else {
 				
 				JOptionPane.showMessageDialog(null, "El usuario no fue encontrado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.html");
 				
 			}
 		}
@@ -106,14 +107,14 @@ public class ServletCRUDUsuario extends HttpServlet {
 			if(t) {
 				
 				JOptionPane.showMessageDialog(null, "El usuario fue actualizado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.html");
 				
 			}
 			
 			else {
 				
 				JOptionPane.showMessageDialog(null, "El usuario no fue encontrado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.html");
 				
 			}
 		}
