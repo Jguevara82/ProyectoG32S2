@@ -41,6 +41,8 @@ public class ServletCRUDUsuario extends HttpServlet {
 		Boolean t;
 		
 		Usuarios usu;
+		Usuarios us;
+		UsuarioCRUD uc;
 		
 		if (request.getParameter("btninsert")!=null) {
 			cu=Float.parseFloat(request.getParameter("cu"));
@@ -49,23 +51,23 @@ public class ServletCRUDUsuario extends HttpServlet {
 			p=request.getParameter("p");
 			u=request.getParameter("u");
 			
-			Usuarios us=new Usuarios(cu, eu, nu, p, u);
+			us=new Usuarios(cu, eu, nu, p, u);
 			
-			UsuarioCRUD uc=new UsuarioCRUD();
+			uc=new UsuarioCRUD();
 			
 			t=uc.insertardatosusuario(us);
 			
 			if(t) {
 				
 				JOptionPane.showMessageDialog(null, "El usuario fue registrado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.jsp");
 				
 			}
 			
 			else {
 				
 				JOptionPane.showMessageDialog(null, "El usuario no fue registrado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.jsp");
 				
 			}
 		}
@@ -73,23 +75,23 @@ public class ServletCRUDUsuario extends HttpServlet {
 		if (request.getParameter("btndelete")!=null) {
 			cu=Float.parseFloat(request.getParameter("cu"));
 			
-			Usuarios us=new Usuarios(cu);
+			us=new Usuarios(cu);
 			
-			UsuarioCRUD uc=new UsuarioCRUD();
+			uc=new UsuarioCRUD();
 			
 			t=uc.eliminardatosusuario(us);
 			
 			if(t) {
 				
 				JOptionPane.showMessageDialog(null, "El usuario fue eliminado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.jsp");
 				
 			}
 			
 			else {
 				
 				JOptionPane.showMessageDialog(null, "El usuario no fue encontrado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.jsp");
 				
 			}
 		}
@@ -97,23 +99,23 @@ public class ServletCRUDUsuario extends HttpServlet {
 		if (request.getParameter("btnupdate")!=null) {
 			cu=Float.parseFloat(request.getParameter("cu"));
 			
-			Usuarios us=new Usuarios(cu);
+			us=new Usuarios(cu);
 			
-			UsuarioCRUD uc=new UsuarioCRUD();
+			uc=new UsuarioCRUD();
 			
 			t=uc.modificardatosusuario(us);
 			
 			if(t) {
 				
 				JOptionPane.showMessageDialog(null, "El usuario fue actualizado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.jsp");
 				
 			}
 			
 			else {
 				
 				JOptionPane.showMessageDialog(null, "El usuario no fue encontrado");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("usuarios.jsp");
 				
 			}
 		}
@@ -121,25 +123,31 @@ public class ServletCRUDUsuario extends HttpServlet {
 		if (request.getParameter("btnsearch")!=null) {
 			cu=Float.parseFloat(request.getParameter("cu"));
 			
-			Usuarios us=new Usuarios(cu);
+			us=new Usuarios(cu);
 			
-			UsuarioCRUD uc=new UsuarioCRUD();
+			uc=new UsuarioCRUD();
 			
 			usu=uc.buscardatosusuario(us);
 			
-			/*if(usu.equals()!=true) {
+			cu=usu.getCedula_usuario();
+			eu=usu.getEmail_usuario();
+			nu=usu.getNombre_usuario();
+			p=usu.getPassword();
+			u=usu.getUsuario();
+			
+			if(cu!=null) {
 				
 				JOptionPane.showMessageDialog(null, "El usuario fue encontrado");
-				response.sendRedirect("busqueda.jsp");
+				response.sendRedirect("usuarios.jsp?cu="+cu+"&&eu="+eu+"&&nu="+nu+"&&p="+p+"&&u="+u);
 				
 			}
 			
 			else {
 				
 				JOptionPane.showMessageDialog(null, "El usuario no fue encontrado");
-				response.sendRedirect("busqueda.jsp");
+				response.sendRedirect("usuarios.jsp");
 				
-			}*/
+			}
 		}
 
 	}

@@ -49,7 +49,7 @@ public class ServletLogin extends HttpServlet {
 			//}
 			if(usuario.equals("admininicial") && clave.equals("admin123456")) {
 				JOptionPane.showMessageDialog(null, "usuario y clave correctos");
-				response.sendRedirect("menu.html");
+				response.sendRedirect("usuarios.jsp");
 			}else {
 				JOptionPane.showMessageDialog(null, "usuario y clave correctos");
 				response.sendRedirect("login.html");
