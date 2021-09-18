@@ -70,8 +70,7 @@ public class UsuarioCRUD {
 		Boolean dat=false;
 		try {
 			
-			ps=cn.prepareStatement("UPDATE usuarios SET cedula_usuario='"+us.getCedula_usuario()+"',"
-											+"email_usuario='"+us.getEmail_usuario()+"',"
+			ps=cn.prepareStatement("UPDATE usuarios SET email_usuario='"+us.getEmail_usuario()+"',"
 											+ "nombre_usuario='"+us.getNombre_usuario()+"',"
 											+ "password='"+us.getPassword()+"',"
 											+ "usuario='"+us.getUsuario()+"'"

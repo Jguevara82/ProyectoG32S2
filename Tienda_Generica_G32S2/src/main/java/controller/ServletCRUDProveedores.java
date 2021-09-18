@@ -104,8 +104,12 @@ public class ServletCRUDProveedores extends HttpServlet {
 		if (request.getParameter("btnupdate")!=null) {
 			
 			nitp=Float.parseFloat(request.getParameter("nitp"));
+			cp=request.getParameter("cp");
+			dp=request.getParameter("dp");
+			np=request.getParameter("np");
+			tp=request.getParameter("tp");
 			
-			pr=new Proveedores(nitp);
+			pr=new Proveedores(nitp,cp,dp,np,tp);
 			
 			prc=new ProveedoresCRUD();
 			

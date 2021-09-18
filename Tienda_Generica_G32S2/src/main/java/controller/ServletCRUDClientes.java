@@ -104,8 +104,12 @@ public class ServletCRUDClientes extends HttpServlet {
 		if (request.getParameter("btnupdate")!=null) {
 			
 			cc=Float.parseFloat(request.getParameter("cc"));
+			dc=request.getParameter("dc");
+			ec=request.getParameter("ec");
+			nc=request.getParameter("nc");
+			tc=request.getParameter("tc");
 			
-			cl=new Clientes(cc);
+			cl=new Clientes(cc,dc,ec,nc,tc);
 			
 			clc=new ClientesCRUD();
 			

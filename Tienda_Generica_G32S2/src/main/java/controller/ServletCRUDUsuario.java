@@ -45,6 +45,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 		UsuarioCRUD uc;
 		
 		if (request.getParameter("btninsert")!=null) {
+			
 			cu=Float.parseFloat(request.getParameter("cu"));
 			eu=request.getParameter("eu");
 			nu=request.getParameter("nu");
@@ -97,9 +98,15 @@ public class ServletCRUDUsuario extends HttpServlet {
 		}
 		
 		if (request.getParameter("btnupdate")!=null) {
-			cu=Float.parseFloat(request.getParameter("cu"));
 			
-			us=new Usuarios(cu);
+			cu=Float.parseFloat(request.getParameter("cu"));
+			eu=request.getParameter("eu");
+			nu=request.getParameter("nu");
+			p=request.getParameter("p");
+			u=request.getParameter("u");
+			
+			
+			us=new Usuarios(cu, eu, nu, p, u);
 			
 			uc=new UsuarioCRUD();
 			

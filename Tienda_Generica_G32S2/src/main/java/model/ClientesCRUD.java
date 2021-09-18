@@ -73,8 +73,7 @@ public class ClientesCRUD {
 		Boolean dat=false;
 		try {
 			
-			ps=cn.prepareStatement("UPDATE clientes SET cedula_cliente='"+cl.getCedula_cliente()+"',"
-											+"direccion_cliente='"+cl.getDireccion_cliente()+"',"
+			ps=cn.prepareStatement("UPDATE clientes SET direccion_cliente='"+cl.getDireccion_cliente()+"',"
 											+ "email_cliente='"+cl.getEmail_cliente()+"',"
 											+ "nombre_cliente='"+cl.getNombre_usuario()+"',"
 											+ "telefono_cliente='"+cl.getTelefono_cliente()+"'"

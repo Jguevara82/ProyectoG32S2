@@ -17,7 +17,7 @@ public class Usuarios {
 		this.password = password;
 		this.usuario = usuario;
 	}
-		
+	
 	public Usuarios(Float cedula_usuario) {
 		super();
 		this.cedula_usuario = cedula_usuario;

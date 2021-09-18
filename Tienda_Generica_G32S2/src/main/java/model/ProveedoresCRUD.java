@@ -73,8 +73,7 @@ public class ProveedoresCRUD {
 		Boolean dat=false;
 		try {
 			
-			ps=cn.prepareStatement("UPDATE proveedores SET nitproveedor='"+pr.getNitproveedor()+"',"
-											+"ciudad_proveedor='"+pr.getCiudad_proveedor()+"',"
+			ps=cn.prepareStatement("UPDATE proveedores SET ciudad_proveedor='"+pr.getCiudad_proveedor()+"',"
 											+ "direccion_proveedor='"+pr.getDireccion_proveedor()+"',"
 											+ "nombre_proveedor='"+pr.getNombre_proveedor()+"',"
 											+ "telefono_proveedor='"+pr.getTelefono_proveedor()+"'"
