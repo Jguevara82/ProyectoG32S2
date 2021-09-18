@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
-    <link rel="stylesheet" href="css/menu.css">
+    <title>Tienda Generica</title>
+    <link rel="stylesheet" href="css/usuarios.css">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
 	
 	<header class="cont-header" id="cont-header">
         <div class="logo-titulo" id="logo-titulo">
-            <h1 class="h1" id="h1">Menu Principal</h1>
+            <h1 class="h1" id="h1">Usuarios</h1>
         </div>
 	    <nav class="nav">
 	        <ul>
@@ -43,7 +43,7 @@
     </header>
     
     <main>
-    
+    	<fieldset class="cont-formcrear">
 		<form action="ServletCRUDUsuario" method="post">
 			<label>Cedula Usuario</label>
 			<input type="text" name="cu">
@@ -57,11 +57,16 @@
 			<input type="text" name="u">
 			<input type="submit" name="btninsert" value="Crear">	
 		</form>
+		</fieldset>
+		
+		<fieldset class="cont-formeliminar">
 		<form action="ServletCRUDUsuario" method="post">
 			<label>Cedula Usuario</label>
 			<input type="text" name="cu">
 			<input type="submit" name="btndelete" value="Eliminar">	
 		</form>
+		</fieldset>
+		<fieldset class="cont-formeliminar">
 		<form action="ServletCRUDUsuario" method="post">
 			<label>Cedula Usuario</label>
 			<input type="text" name="cu">
@@ -75,30 +80,14 @@
 			<input type="text" name="u">
 			<input type="submit" name="btnupdate" value="Actualizar">	
 		</form>
+		</fieldset>
+		<fieldset class="cont-formactualizar">
 		<form action="ServletCRUDUsuario" method="post">
 			<label>Cedula Usuario</label>
 			<input type="text" name="cu">
 			<input type="submit" name="btnsearch" value="Buscar">	
 		</form>
-		
-		<h1>Resultado</h1>
-		<table>
-			<thead>Resultado</thead>
-			<tr>
-				<th>Cedula Usuario</th>
-				<th>Email Usuario</th>
-				<th>Nombre Usuario</th>
-				<th>Password Usuario</th>
-				<th>Usuario</th>
-			</tr>
-			<tr>
-				<td><%=cu%></td>
-				<td><%=eu%></td>
-				<td><%=nu%></td>
-				<td><%=p%></td>
-				<td><%=u%></td>
-			</tr>
-		</table>
+		</fieldset>
 		
 	</main>
 	
