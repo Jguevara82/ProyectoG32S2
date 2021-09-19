@@ -51,7 +51,7 @@ public class ServletLogin extends HttpServlet {
 				JOptionPane.showMessageDialog(null, "usuario y clave correctos");
 				response.sendRedirect("usuarios.jsp");
 			}else {
-				JOptionPane.showMessageDialog(null, "usuario y clave correctos");
+				JOptionPane.showMessageDialog(null, "usuario y clave incorrectos");
 				response.sendRedirect("login.html");
 			}
 	

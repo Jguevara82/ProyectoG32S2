@@ -14,7 +14,7 @@
 	
 	<header class="cont-header" id="cont-header">
         <div class="logo-titulo" id="logo-titulo">
-            <h1 class="h1" id="h1">Menu Principal</h1>
+            <h1 class="h1" id="h1">Clientes</h1>
         </div>
 	    <nav class="nav">
 	        <ul>

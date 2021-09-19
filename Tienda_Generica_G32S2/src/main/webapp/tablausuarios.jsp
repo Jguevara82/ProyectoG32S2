@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="css/tablausuarios.css">
-<title>Tienda Generica</title>
+<title>Tabla de usuarios</title>
 </head>
 <body>
 <%!	String cu,eu,nu,p,u; %>
