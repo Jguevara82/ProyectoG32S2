@@ -69,7 +69,6 @@ public class UsuarioCRUD {
 		int x;
 		Boolean dat=false;
 		try {
-			
 			ps=cn.prepareStatement("UPDATE usuarios SET email_usuario='"+us.getEmail_usuario()+"',"
 											+ "nombre_usuario='"+us.getNombre_usuario()+"',"
 											+ "password='"+us.getPassword()+"',"
@@ -87,8 +86,9 @@ public class UsuarioCRUD {
 		}
 		
 		return dat;
-		
 	}
+		
+	
 	
 	public Usuarios buscardatosusuario(Usuarios us) {
 

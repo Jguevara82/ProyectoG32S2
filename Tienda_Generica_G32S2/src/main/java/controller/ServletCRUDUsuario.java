@@ -40,12 +40,12 @@ public class ServletCRUDUsuario extends HttpServlet {
 		String eu,nu, p, u;
 		Boolean t;
 		
+		
 		Usuarios usu;
 		Usuarios us;
 		UsuarioCRUD uc;
 		
 		if (request.getParameter("btninsert")!=null) {
-			
 			try{
 				cu=Float.parseFloat(request.getParameter("cu"));
 				eu=request.getParameter("eu");
@@ -80,11 +80,9 @@ public class ServletCRUDUsuario extends HttpServlet {
 		if (request.getParameter("btndelete")!=null) {
 			try {
 				cu=Float.parseFloat(request.getParameter("cu"));
-				
 				us=new Usuarios(cu);
 				
 				uc=new UsuarioCRUD();
-				
 				t=uc.eliminardatosusuario(us);
 				
 				if(t) {
@@ -130,7 +128,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 			}catch(Exception e){
 				JOptionPane.showMessageDialog(null, "Ingrese una cédula válida, por favor");
 				response.sendRedirect("usuarios.jsp");
-			}	
+			}
 		}
 		
 		if (request.getParameter("btnsearch")!=null) {
