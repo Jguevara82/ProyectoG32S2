@@ -161,7 +161,7 @@ public class ServletCRUDProveedores extends HttpServlet {
 				
 				if(nitp!=null) {
 					
-					JOptionPane.showMessageDialog(null, "El provedor fue encontrado");
+					JOptionPane.showMessageDialog(null, "El proveedor fue encontrado");
 					response.sendRedirect("tablaproveedores.jsp?nitp="+nitp+"&&cp="+cp+"&&dp="+dp+"&&np="+np+"&&tp="+tp);
 					
 				}

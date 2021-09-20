@@ -30,7 +30,7 @@
          </div>  
     <nav class="nav">
         <ul>
-            <li><a href="usuarios.jsp">Usuarios</a></li>
+            <li><a href="proveedores.jsp">Proveedores</a></li>
         </ul>
     </nav>
 </header>

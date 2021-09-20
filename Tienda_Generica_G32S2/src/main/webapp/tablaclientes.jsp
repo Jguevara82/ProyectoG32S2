@@ -30,7 +30,7 @@
          </div>  
     <nav class="nav">
         <ul>
-            <li><a href="usuarios.jsp">Usuarios</a></li>
+            <li><a href="clientes.jsp">Clientes</a></li>
         </ul>
     </nav>
 </header>
@@ -39,7 +39,7 @@
        		 <tr>
 				<th>Cedula Cliente</th>
 				<th>Direccion Cliente</th>
-				<th>Email Cliuente</th>
+				<th>Email Cliente</th>
 				<th>Nombre Cliente</th>
 				<th>Telefono Cliente</th>
 			</tr>

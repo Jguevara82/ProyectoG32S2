@@ -66,7 +66,7 @@
 			<input type="submit" name="btndelete" value="Eliminar">	
 		</form>
 		</fieldset>
-		<fieldset class="cont-formeliminar">
+		<fieldset class="cont-formactualizar">
 		<form action="ServletCRUDUsuario" method="post">
 			<label>Cedula Usuario</label>
 			<input type="text" name="cu">
