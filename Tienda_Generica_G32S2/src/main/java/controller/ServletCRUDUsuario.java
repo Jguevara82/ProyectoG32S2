@@ -152,7 +152,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 				if(cu!=null) {
 					
 					JOptionPane.showMessageDialog(null, "El usuario fue encontrado");
-					response.sendRedirect("tablausuarios.jsp?cu="+cu+"&&eu="+eu+"&&nu="+nu+"&&p="+p+"&&u="+u);
+					response.sendRedirect("usuarios.jsp?cu="+cu+"&&eu="+eu+"&&nu="+nu+"&&p="+p+"&&u="+u);
 					
 				}
 				

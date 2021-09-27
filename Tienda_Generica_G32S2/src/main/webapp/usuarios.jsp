@@ -25,6 +25,14 @@
 		p=request.getParameter("p");
 		u=request.getParameter("u");
 		
+		if(cu==null){
+			  cu=" ";
+			  eu=" ";
+			  nu=" ";
+			  p=" ";
+			  u=" ";
+			}
+		
 	%>
 	
 	<header class="cont-header" id="cont-header">
@@ -36,7 +44,7 @@
 	            <li><a href="usuarios.jsp">Usuarios</a></li>
 	            <li><a href="clientes.jsp">Clientes</a></li>
 	            <li><a href="proveedores.jsp">Proveedores</a></li>
-	            <li><a href="#">Productos</a></li>
+	            <li><a href="productos.jsp">Productos</a></li>
 	            <li><a href="#">Ventas</a></li>
 	            <li><a href="#">Reportes</a></li>
 	        </ul>
@@ -85,8 +93,18 @@
 		<fieldset class="cont-formactualizar">
 		<form action="ServletCRUDUsuario" method="post">
 			<label>Cedula Usuario</label>
-			<input type="text" name="cu">
+			<input type="text" name="cu" values="<%=cu%>">
 			<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios">	
+		</form>
+		<form action="">
+			<label>Email Usuario</label>
+			<input type="text" name="eu" values="<%=eu%>">
+			<label>Nombre Usuario</label>
+			<input type="text" name="nu"values="<%=nu%>">
+			<label>Password Usuario</label>
+			<input type="text" name="p"values="<%=p%>">
+			<label>Usuario</label>
+			<input type="text" name="u"values="<%=u%>">
 		</form>
 		</fieldset>
 		
