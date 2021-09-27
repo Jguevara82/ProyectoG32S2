@@ -93,18 +93,18 @@
 		<fieldset class="cont-formactualizar">
 		<form action="ServletCRUDUsuario" method="post">
 			<label>Cedula Usuario</label>
-			<input type="text" name="cu" values="<%=cu%>">
+			<input type="text" name="cu" value="<%=cu%>">
 			<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios">	
 		</form>
 		<form action="">
 			<label>Email Usuario</label>
-			<input type="text" name="eu" values="<%=eu%>">
+			<input type="text" name="eu" value="<%=eu%>">
 			<label>Nombre Usuario</label>
-			<input type="text" name="nu"values="<%=nu%>">
+			<input type="text" name="nu"value="<%=nu%>">
 			<label>Password Usuario</label>
-			<input type="text" name="p"values="<%=p%>">
+			<input type="text" name="p"value="<%=p%>">
 			<label>Usuario</label>
-			<input type="text" name="u"values="<%=u%>">
+			<input type="text" name="u"value="<%=u%>">
 		</form>
 		</fieldset>
 		
