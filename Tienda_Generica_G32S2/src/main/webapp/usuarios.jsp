@@ -1,4 +1,3 @@
-<%@page import="controller.ConnectionDB"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -10,14 +9,13 @@
     <title>Usuarios</title>
     <link rel="stylesheet" href="css/menu.css"> 
     <link rel="stylesheet" href="css/formulariosTodos.css">
+    <link rel="stylesheet" href="css/tablasTodas.css">
 </head>
 <body>
 
 	<%!	String cu,eu,nu,p,u; %>
 	
 	<%
-		ConnectionDB cnnx=new ConnectionDB();
-		cnnx.conexiondb();
 		
 		cu=request.getParameter("cu");
 		eu=request.getParameter("eu");
@@ -109,6 +107,5 @@
 		</fieldset>
 		
 	</main>
-	
 </body>
 </html>

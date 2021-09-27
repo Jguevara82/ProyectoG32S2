@@ -12,7 +12,25 @@
     <link rel="stylesheet" href="css/formulariosTodos.css">
 </head>
 <body>
+	<%!	String cc, dc, ec, nc, tc; %>
 	
+	<%
+		
+		cc=request.getParameter("cc");
+		dc=request.getParameter("dc");
+		ec=request.getParameter("ec");
+		nc=request.getParameter("nc");
+		tc=request.getParameter("tc");
+		
+		if(cc==null){
+			  cc=" ";
+			  dc=" ";
+			  ec=" ";
+			  nc=" ";
+			  tc=" ";
+			}
+		
+	%>
 	<header class="cont-header" id="cont-header">
         <div class="logo-titulo" id="logo-titulo">
             <h1 class="h1" id="h1">Clientes</h1>
@@ -70,9 +88,19 @@
 		<fieldset class="cont-formbuscar">
 		<form action="ServletCRUDClientes" method="post">
 			<label>Cedula cliente</label>
-			<input type="text" name="cc">
+			<input type="text" name="cc" value="<%=cc%>">
 			<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios">	
 		</form>
+			<form action="">
+			<label>Direccion cliente</label>
+			<input type="text" name="dc" value="<%=dc%>">
+			<label>Email cliente</label>
+			<input type="text" name="ec" value="<%=ec%>">
+			<label>Nombre cliente</label>
+			<input type="text" name="nc" value="<%=nc%>">
+			<label>Telefono cliente</label>
+			<input type="text" name="tc" value="<%=tc%>">
+			</form>
 		</fieldset>	
 		
 	</main>

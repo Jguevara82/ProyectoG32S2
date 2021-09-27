@@ -70,6 +70,7 @@ public class ServletProductos extends HttpServlet {
 				
 				if(x) {
 					JOptionPane.showMessageDialog(null, "Datos cargados en BD");
+					response.sendRedirect("productos.jsp");
 				}else {
 					JOptionPane.showMessageDialog(null, "No se cargaron los datos");
 				}

@@ -161,7 +161,7 @@ public class ServletCRUDClientes extends HttpServlet {
 				if(cc!=null) {
 					
 					JOptionPane.showMessageDialog(null, "El cliente fue encontrado");
-					response.sendRedirect("tablaclientes.jsp?cc="+cc+"&&dc="+dc+"&&ec="+ec+"&&nc="+nc+"&&tc="+tc);
+					response.sendRedirect("clientes.jsp?cc="+cc+"&&dc="+dc+"&&ec="+ec+"&&nc="+nc+"&&tc="+tc);
 					
 				}
 				

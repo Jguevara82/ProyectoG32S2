@@ -13,6 +13,26 @@
 </head>
 <body>
 	
+	
+	<%!	String nitp, cp, dp, np, tp; %>
+	
+	<%
+		
+		nitp=request.getParameter("nitp");
+		cp=request.getParameter("cp");
+		dp=request.getParameter("dp");
+		np=request.getParameter("np");
+		tp=request.getParameter("tp");
+		
+		if(nitp==null){
+			  nitp=" ";
+			  cp=" ";
+			  dp=" ";
+			  np=" ";
+			  tp=" ";
+			}
+		
+	%>
 	<header class="cont-header" id="cont-header">
         <div class="logo-titulo" id="logo-titulo">
             <h1 class="h1" id="h1">Proveedores</h1>
@@ -70,8 +90,18 @@
 		<fieldset class="cont-formbuscar">
 		<form action="ServletCRUDProveedores" method="post">
 			<label>Nit proveedor</label>
-			<input type="text" name="nitp">
+			<input type="text" name="nitp" value="<%=nitp%>">
 			<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios">	
+		</form>
+		<form action="">
+			<label>Ciudad proveedor</label>
+			<input type="text" name="cp" value="<%=cp%>">
+			<label>Direccion proveedor</label>
+			<input type="text" name="dp" value="<%=dp%>">
+			<label>Nombre proveedor</label>
+			<input type="text" name="np" value="<%=np%>">
+			<label>Telefono proveedor</label>
+			<input type="text" name="tp" value="<%=tp%>">
 		</form>
 		</fieldset>
 		
