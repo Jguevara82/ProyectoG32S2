@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css/tablaproveedores.css">
+<link rel="stylesheet" href="css/menu.css"> 
+<link rel="stylesheet" href="css/tablasTodas.css">
 <title>Tienda Generica</title>
 </head>
 <body>

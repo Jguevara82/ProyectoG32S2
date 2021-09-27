@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
-    <link rel="stylesheet" href="css/usuarios.css">
+    <link rel="stylesheet" href="css/menu.css"> 
+    <link rel="stylesheet" href="css/formulariosTodos.css">
 </head>
 <body>
 
@@ -55,7 +56,7 @@
 			<input type="text" name="p">
 			<label>Usuario</label>
 			<input type="text" name="u">
-			<input type="submit" name="btninsert" value="Crear">	
+			<input type="submit" name="btninsert" value="Crear" class="btn-formularios">	
 		</form>
 		</fieldset>
 		
@@ -63,7 +64,7 @@
 		<form action="ServletCRUDUsuario" method="post">
 			<label>Cedula Usuario</label>
 			<input type="text" name="cu">
-			<input type="submit" name="btndelete" value="Eliminar">	
+			<input type="submit" name="btndelete" value="Eliminar" class="btn-formularios">	
 		</form>
 		</fieldset>
 		<fieldset class="cont-formactualizar">
@@ -78,14 +79,14 @@
 			<input type="text" name="p">
 			<label>Usuario</label>
 			<input type="text" name="u">
-			<input type="submit" name="btnupdate" value="Actualizar">	
+			<input type="submit" name="btnupdate" value="Actualizar" class="btn-formularios">	
 		</form>
 		</fieldset>
 		<fieldset class="cont-formactualizar">
 		<form action="ServletCRUDUsuario" method="post">
 			<label>Cedula Usuario</label>
 			<input type="text" name="cu">
-			<input type="submit" name="btnsearch" value="Buscar">	
+			<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios">	
 		</form>
 		</fieldset>
 		

@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
-    <link rel="stylesheet" href="css/clientes.css">
+    <link rel="stylesheet" href="css/menu.css"> 
+    <link rel="stylesheet" href="css/formulariosTodos.css">
 </head>
 <body>
 	
@@ -41,14 +42,14 @@
 			<input type="text" name="nc">
 			<label>Telefono cliente</label>
 			<input type="text" name="tc">
-			<input type="submit" name="btninsert" value="Crear">	
+			<input type="submit" name="btninsert" value="Crear" class="btn-formularios">	
 		</form>
 		</fieldset>	
 		<fieldset class="cont-formeliminar">
 		<form action="ServletCRUDClientes" method="post">
 			<label>Cedula cliente</label>
 			<input type="text" name="cc">
-			<input type="submit" name="btndelete" value="Eliminar">	
+			<input type="submit" name="btndelete" value="Eliminar" class="btn-formularios">	
 		</form>
 		</fieldset>	
 		<fieldset class="cont-formactualizar">
@@ -63,14 +64,14 @@
 			<input type="text" name="nc">
 			<label>Telefono cliente</label>
 			<input type="text" name="tc">
-			<input type="submit" name="btnupdate" value="Actualizar">	
+			<input type="submit" name="btnupdate" value="Actualizar" class="btn-formularios">	
 		</form>
 		</fieldset>	
 		<fieldset class="cont-formbuscar">
 		<form action="ServletCRUDClientes" method="post">
 			<label>Cedula cliente</label>
 			<input type="text" name="cc">
-			<input type="submit" name="btnsearch" value="Buscar">	
+			<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios">	
 		</form>
 		</fieldset>	
 		

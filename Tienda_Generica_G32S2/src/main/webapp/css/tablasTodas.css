@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+table{
+    border: 1px solid #252222;
+    margin: 10% auto;
+    width: 80%;
+    height: auto;
+}
+
+tr{
+    border: 2px solid rgb(255, 255, 255);
+    background-color: #212120;
+    height: 40px;
+}
+
+th{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #212120;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 15px;
+    font-family: serif, arial;
+    font-size: 1.2em;
+}
+
+td{
+	color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    font-family: serif, arial;
+    font-size: 1.2em;
+}

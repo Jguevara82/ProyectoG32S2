@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proveedores</title>
-    <link rel="stylesheet" href="css/proveedores.css">
+    <link rel="stylesheet" href="css/menu.css"> 
+    <link rel="stylesheet" href="css/formulariosTodos.css">
 </head>
 <body>
 	
@@ -41,14 +42,14 @@
 			<input type="text" name="np">
 			<label>Telefono proveedor</label>
 			<input type="text" name="tp">
-			<input type="submit" name="btninsert" value="Crear">	
+			<input type="submit" name="btninsert" value="Crear" class="btn-formularios">	
 		</form>
 		</fieldset>	
 		<fieldset class="cont-formeliminar">
 		<form action="ServletCRUDProveedores" method="post">
 			<label>Nit proveedor</label>
 			<input type="text" name="nitp">
-			<input type="submit" name="btndelete" value="Eliminar">	
+			<input type="submit" name="btndelete" value="Eliminar" class="btn-formularios">	
 		</form>
 		</fieldset>	
 		<fieldset class="cont-formactualizar">
@@ -63,14 +64,14 @@
 			<input type="text" name="np">
 			<label>Telefono proveedor</label>
 			<input type="text" name="tp">
-			<input type="submit" name="btnupdate" value="Actualizar">	
+			<input type="submit" name="btnupdate" value="Actualizar" class="btn-formularios">	
 		</form>
 		</fieldset>
 		<fieldset class="cont-formbuscar">
 		<form action="ServletCRUDProveedores" method="post">
 			<label>Nit proveedor</label>
 			<input type="text" name="nitp">
-			<input type="submit" name="btnsearch" value="Buscar">	
+			<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios">	
 		</form>
 		</fieldset>
 		
