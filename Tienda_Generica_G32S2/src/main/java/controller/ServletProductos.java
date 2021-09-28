@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -17,8 +17,7 @@ import javax.swing.JOptionPane;
 
 import model.Productos;
 import model.ProductosCRUD;
-import model.UsuarioCRUD;
-import model.Usuarios;
+
 
 /**
  * Servlet implementation class Prueba
@@ -54,6 +53,7 @@ public class ServletProductos extends HttpServlet {
 		String np;
 		Boolean t;
 		
+		Productos pd;
 		Productos prod;
 		ProductosCRUD pcrud;
 		
@@ -123,6 +123,42 @@ public class ServletProductos extends HttpServlet {
 				JOptionPane.showMessageDialog(null, "Ingrese un código válida, por favor");
 				response.sendRedirect("productos.jsp");
 			}	
+		}
+		
+		if (request.getParameter("btnsearch")!=null) {
+			try {
+				cp=Integer.parseInt(request.getParameter("cp"));
+				
+				prod=new Productos(cp);
+				
+				pcrud=new ProductosCRUD();
+				
+				pd=pcrud.buscardatosproducto(prod);
+				
+				cp=pd.getCodigo_producto();
+				iv=pd.getIvacompra();
+				ni=pd.getNitproveedor();
+				np=pd.getNombre_producto();
+				pc=pd.getPrecio_compra();
+				pv=pd.getPrecio_venta();
+				
+				if(cp!=0) {
+					
+					JOptionPane.showMessageDialog(null, "El producto fue encontrado");
+					response.sendRedirect("productos.jsp?cp="+cp+"&&iv="+iv+"&&ni="+ni+"&&np="+np+"&&pc="+pc+"&&pv="+pv);
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El producto no fue encontrado");
+					response.sendRedirect("productos.jsp");
+					
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese un código válido, por favor");
+				response.sendRedirect("productos.jsp");
+			}
 		}
 		}
 
