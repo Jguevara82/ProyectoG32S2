@@ -17,7 +17,7 @@ public class ProductosCRUD {
 	PreparedStatement ps;
 	ResultSet rs;
 	
-	Productos prod;
+	Productos pd;
 	
 	public boolean cargarproductos(String url) {
 		boolean x=false;
@@ -30,5 +30,55 @@ public class ProductosCRUD {
 			JOptionPane.showMessageDialog(null, "Error al cargar la información en la BD"+e);
 		}
 		return x;
+	}
+	
+	public boolean modificardatosproducto(Productos prod) {
+		
+		int x;
+		Boolean dat=false;
+		try {
+			
+			ps=cn.prepareStatement("UPDATE productos SET codigo_producto='"+prod.getCodigo_producto()+"',"
+											+ "ivacompra='"+prod.getIvacompra()+"',"
+											+ "nitproveedor='"+prod.getNitproveedor()+"',"
+											+ "nombre_producto='"+prod.getNombre_producto()+"',"
+											+ "precio_compra='"+prod.getPrecio_compra()+"',"
+											+ "precio_venta='"+prod.getPrecio_venta()+"'"
+											+ "WHERE codigo_producto='"+prod.getCodigo_producto()+"'");
+			x=ps.executeUpdate();
+			if (x>0) {
+				dat=true;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
+		return dat;
+		
+	}
+	
+	public Productos buscardatosproducto(Productos prod) {
+
+		try {
+			
+			ps=cn.prepareStatement("SELECT * FROM productos WHERE codigo_producto=?");
+			ps.setInt(1, prod.getCodigo_producto());
+			rs=ps.executeQuery();
+						
+			while (rs.next()) {
+				pd=new Productos(rs.getInt(1), rs.getDouble(2), rs.getInt(3), rs.getString(4), rs.getDouble(5), rs.getDouble(6));
+			}
+						
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
+		return pd;
+		
 	}
 }

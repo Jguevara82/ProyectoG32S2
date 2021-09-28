@@ -36,6 +36,25 @@ main {
 .cont-formbuscar {
 	display: inline-block;
 	width: 22%;
+	margin-left: auto;
+	margin-right: 200px;
+	height: auto;
+	border-radius: 20px;
+	padding: 1% 0%;
+}
+
+.cont-formproductos{
+	display: inline-block;
+	width: 22%;
+	margin: auto;
+	height: auto;
+	border-radius: 20px;
+	padding: 1% 0%;
+}
+
+.cont-formcsv{
+	display: inline-block;
+	width: 30%;
 	margin: auto;
 	height: auto;
 	border-radius: 20px;
