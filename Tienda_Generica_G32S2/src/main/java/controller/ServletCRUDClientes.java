@@ -48,116 +48,132 @@ public class ServletCRUDClientes extends HttpServlet {
 		ClientesCRUD clc;
 		
 		if (request.getParameter("btninsert")!=null) {
-			
-			cc=Float.parseFloat(request.getParameter("cc"));
-			dc=request.getParameter("dc");
-			ec=request.getParameter("ec");
-			nc=request.getParameter("nc");
-			tc=request.getParameter("tc");
-			
-			cl=new Clientes(cc, dc, ec, nc, tc);
-			
-			clc=new ClientesCRUD();
-			
-			t=clc.insertardatoscliente(cl);
-			
-			if(t) {
+			try {
+				cc=Float.parseFloat(request.getParameter("cc"));
+				dc=request.getParameter("dc");
+				ec=request.getParameter("ec");
+				nc=request.getParameter("nc");
+				tc=request.getParameter("tc");
 				
-				JOptionPane.showMessageDialog(null, "El cliente fue registrado");
+				cl=new Clientes(cc, dc, ec, nc, tc);
+				
+				clc=new ClientesCRUD();
+				
+				t=clc.insertardatoscliente(cl);
+				
+				if(t) {
+					
+					JOptionPane.showMessageDialog(null, "El cliente fue registrado");
+					response.sendRedirect("clientes.jsp");
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El cliente no fue registrado");
+					response.sendRedirect("clientes.jsp");
+					
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese una cédula válida, por favor");
 				response.sendRedirect("clientes.jsp");
-				
-			}
-			
-			else {
-				
-				JOptionPane.showMessageDialog(null, "El cliente no fue registrado");
-				response.sendRedirect("clientes.jsp");
-				
 			}
 		}
 		
 		if (request.getParameter("btndelete")!=null) {
-			
-			cc=Float.parseFloat(request.getParameter("cc"));
-			
-			cl=new Clientes(cc);
-			
-			clc=new ClientesCRUD();
-			
-			t=clc.eliminardatoscliente(cl);
-			
-			if(t) {
+			try {
+				cc=Float.parseFloat(request.getParameter("cc"));
 				
-				JOptionPane.showMessageDialog(null, "El cliente fue eliminado");
+				cl=new Clientes(cc);
+				
+				clc=new ClientesCRUD();
+				
+				t=clc.eliminardatoscliente(cl);
+				
+				if(t) {
+					
+					JOptionPane.showMessageDialog(null, "El cliente fue eliminado");
+					response.sendRedirect("clientes.jsp");
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El cliente no fue encontrado");
+					response.sendRedirect("clientes.jsp");
+					
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese una cédula válida, por favor");
 				response.sendRedirect("clientes.jsp");
-				
-			}
-			
-			else {
-				
-				JOptionPane.showMessageDialog(null, "El cliente no fue encontrado");
-				response.sendRedirect("clientes.jsp");
-				
 			}
 		}
 		
 		if (request.getParameter("btnupdate")!=null) {
-			
-			cc=Float.parseFloat(request.getParameter("cc"));
-			dc=request.getParameter("dc");
-			ec=request.getParameter("ec");
-			nc=request.getParameter("nc");
-			tc=request.getParameter("tc");
-			
-			cl=new Clientes(cc,dc,ec,nc,tc);
-			
-			clc=new ClientesCRUD();
-			
-			t=clc.modificardatoscliente(cl);
-			
-			if(t) {
+			try {
+				cc=Float.parseFloat(request.getParameter("cc"));
+				dc=request.getParameter("dc");
+				ec=request.getParameter("ec");
+				nc=request.getParameter("nc");
+				tc=request.getParameter("tc");
 				
-				JOptionPane.showMessageDialog(null, "El cliente fue actualizado");
+				cl=new Clientes(cc,dc,ec,nc,tc);
+				
+				clc=new ClientesCRUD();
+				
+				t=clc.modificardatoscliente(cl);
+				
+				if(t) {
+					
+					JOptionPane.showMessageDialog(null, "El cliente fue actualizado");
+					response.sendRedirect("clientes.jsp");
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El cliente no fue encontrado");
+					response.sendRedirect("clientes.jsp");
+					
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese una cédula válida, por favor");
 				response.sendRedirect("clientes.jsp");
-				
-			}
-			
-			else {
-				
-				JOptionPane.showMessageDialog(null, "El cliente no fue encontrado");
-				response.sendRedirect("clientes.jsp");
-				
 			}
 		}
 		
 		if (request.getParameter("btnsearch")!=null) {
-			
-			cc=Float.parseFloat(request.getParameter("cc"));
-			
-			cl=new Clientes(cc);
-			
-			clc=new ClientesCRUD();
-			
-			cli=clc.buscardatoscliente(cl);
-			
-			cc=cli.getCedula_cliente();
-			dc=cli.getDireccion_cliente();
-			ec=cli.getEmail_cliente();
-			nc=cli.getNombre_usuario();
-			tc=cli.getTelefono_cliente();
-			
-			if(cc!=null) {
+			try {
+				cc=Float.parseFloat(request.getParameter("cc"));
 				
-				JOptionPane.showMessageDialog(null, "El cliente fue encontrado");
-				response.sendRedirect("tablaclientes.jsp?cc="+cc+"&&dc="+dc+"&&ec="+ec+"&&nc="+nc+"&&tc="+tc);
+				cl=new Clientes(cc);
 				
-			}
-			
-			else {
+				clc=new ClientesCRUD();
 				
-				JOptionPane.showMessageDialog(null, "El cliente no fue encontrado");
+				cli=clc.buscardatoscliente(cl);
+				
+				cc=cli.getCedula_cliente();
+				dc=cli.getDireccion_cliente();
+				ec=cli.getEmail_cliente();
+				nc=cli.getNombre_usuario();
+				tc=cli.getTelefono_cliente();
+				
+				if(cc!=null) {
+					
+					JOptionPane.showMessageDialog(null, "El cliente fue encontrado");
+					response.sendRedirect("clientes.jsp?cc="+cc+"&&dc="+dc+"&&ec="+ec+"&&nc="+nc+"&&tc="+tc);
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El cliente no fue encontrado");
+					response.sendRedirect("clientes.jsp");
+					
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese una cédula válida, por favor");
 				response.sendRedirect("clientes.jsp");
-				
 			}
 		}
 		

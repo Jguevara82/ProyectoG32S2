@@ -77,7 +77,7 @@ public class ProveedoresCRUD {
 											+ "direccion_proveedor='"+pr.getDireccion_proveedor()+"',"
 											+ "nombre_proveedor='"+pr.getNombre_proveedor()+"',"
 											+ "telefono_proveedor='"+pr.getTelefono_proveedor()+"'"
-											+ "WHERE cedula_cliente='"+pr.getNitproveedor()+"'");
+											+ "WHERE nitproveedor='"+pr.getNitproveedor()+"'");
 			x=ps.executeUpdate();
 			if (x>0) {
 				dat=true;

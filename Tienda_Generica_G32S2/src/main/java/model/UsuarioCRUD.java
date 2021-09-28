@@ -112,8 +112,9 @@ public class UsuarioCRUD {
 		
 	}
 	
-	public Usuarios buscarUsuLogin(Usuarios us) {
-
+public int buscarUsuLogin(Usuarios us) {
+		
+		int bandera = 0;
 		try {
 			
 			ps=cn.prepareStatement("SELECT * FROM usuarios WHERE usuario=? and password=?");
@@ -122,6 +123,7 @@ public class UsuarioCRUD {
 			rs=ps.executeQuery();
 						
 			while (rs.next()) {
+				bandera = 1;
 				usu=new Usuarios(rs.getFloat(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 			}
 						
@@ -131,7 +133,7 @@ public class UsuarioCRUD {
 			
 		}
 		
-		return usu;
+		return bandera;
 		
 	}
 }

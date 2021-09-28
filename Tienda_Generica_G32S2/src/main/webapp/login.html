@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tienda Generica</title>
 <link rel="stylesheet" href="css/login.css">
+
 </head>
 <body>
 	<header class="cont-header" id="cont-header">
@@ -15,11 +16,12 @@
 	<fieldset class="cont_ingreso">
 		<legend>Bienvenidos</legend>
 		<form action="ServletLogin" method="GET">
-			<label for="">Usuario</label> 
-			<input type="text" name="usu" required="true">
-			<label for="">Contraseña</label> 
-			<input type="password" name="pass" required="true">
-			<input type="submit" name="btningreso" value="Ingresar">
+			<label for="usu">Usuario</label> <input type="text" name="usu"
+				id="usu" placeholder="Digite su usuario" required="true"> <label
+				for="pass">Contraseña</label> <input type="password" name="pass"
+				id="pass" placeholder="Digite su contraseña" required="true">
+			<input type="submit" name="btningreso" value="Ingresar"
+				class="btningreso-login">
 		</form>
 	</fieldset>
 </body>

@@ -34,24 +34,21 @@ public class ServletLogin extends HttpServlet {
 
 		String usuario = request.getParameter("usu");
 		String clave = request.getParameter("pass");
+
+		Usuarios us;
+		int bandera;
+		UsuarioCRUD uc;
 		if (request.getParameter("btningreso") != null) {
-			
-			//Usuarios us=new Usuarios(clave, usuario);
-			//UsuarioCRUD uc=new UsuarioCRUD();
-			//us = uc.buscarUsuLogin(us);
-			
-			//if(us.getCedula_usuario()!=0) {
-				//JOptionPane.showMessageDialog(null, "usuario y clave correctos");
-				//response.sendRedirect("menu.html");
-			//}else {
-				//JOptionPane.showMessageDialog(null, "usuario y clave correctos");
-				//response.sendRedirect("login.html");
-			//}
-			if(usuario.equals("admininicial") && clave.equals("admin123456")) {
+
+			us = new Usuarios(clave, usuario);
+			uc = new UsuarioCRUD();
+			bandera = uc.buscarUsuLogin(us);
+
+			if (bandera != 0) {
 				JOptionPane.showMessageDialog(null, "usuario y clave correctos");
-				response.sendRedirect("usuarios.jsp");
-			}else {
-				JOptionPane.showMessageDialog(null, "usuario y clave correctos");
+				response.sendRedirect("menu.html");
+			} else {
+				JOptionPane.showMessageDialog(null, "usuario y/o clave incorrectos");
 				response.sendRedirect("login.html");
 			}
 	

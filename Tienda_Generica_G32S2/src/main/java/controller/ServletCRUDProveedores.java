@@ -49,115 +49,132 @@ public class ServletCRUDProveedores extends HttpServlet {
 		ProveedoresCRUD prc;
 		
 		if (request.getParameter("btninsert")!=null) {
-			
-			nitp=Float.parseFloat(request.getParameter("nitp"));
-			cp=request.getParameter("cp");
-			dp=request.getParameter("dp");
-			np=request.getParameter("np");
-			tp=request.getParameter("tp");
-			
-			pr=new Proveedores(nitp, cp, dp, np, tp);
-			
-			prc=new ProveedoresCRUD();
-			
-			t=prc.insertardatosproveedor(pr);
-			
-			if(t) {
+			try {
+				nitp=Float.parseFloat(request.getParameter("nitp"));
+				cp=request.getParameter("cp");
+				dp=request.getParameter("dp");
+				np=request.getParameter("np");
+				tp=request.getParameter("tp");
 				
-				JOptionPane.showMessageDialog(null, "El proveedor fue registrado");
+				pr=new Proveedores(nitp, cp, dp, np, tp);
+				
+				prc=new ProveedoresCRUD();
+				
+				t=prc.insertardatosproveedor(pr);
+				
+				if(t) {
+					
+					JOptionPane.showMessageDialog(null, "El proveedor fue registrado");
+					response.sendRedirect("proveedores.jsp");
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El proveedor no fue registrado");
+					response.sendRedirect("proveedores.jsp");
+					
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese un NIT válido, por favor");
 				response.sendRedirect("proveedores.jsp");
-				
-			}
-			
-			else {
-				
-				JOptionPane.showMessageDialog(null, "El proveedor no fue registrado");
-				response.sendRedirect("proveedores.jsp");
-				
 			}
 		}
 		
 		if (request.getParameter("btndelete")!=null) {
-			nitp=Float.parseFloat(request.getParameter("nitp"));
-			
-			pr=new Proveedores(nitp);
-			
-			prc=new ProveedoresCRUD();
-			
-			t=prc.eliminardatosproveedor(pr);
-			
-			if(t) {
+			try {
+				nitp=Float.parseFloat(request.getParameter("nitp"));
 				
-				JOptionPane.showMessageDialog(null, "El proveedor fue eliminado");
+				pr=new Proveedores(nitp);
+				
+				prc=new ProveedoresCRUD();
+				
+				t=prc.eliminardatosproveedor(pr);
+				
+				if(t) {
+					
+					JOptionPane.showMessageDialog(null, "El proveedor fue eliminado");
+					response.sendRedirect("proveedores.jsp");
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El proveedor no fue encontrado");
+					response.sendRedirect("proveedores.jsp");
+					
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese un NIT válido, por favor");
 				response.sendRedirect("proveedores.jsp");
-				
-			}
-			
-			else {
-				
-				JOptionPane.showMessageDialog(null, "El proveedor no fue encontrado");
-				response.sendRedirect("proveedores.jsp");
-				
 			}
 		}
 		
 		if (request.getParameter("btnupdate")!=null) {
-			
-			nitp=Float.parseFloat(request.getParameter("nitp"));
-			cp=request.getParameter("cp");
-			dp=request.getParameter("dp");
-			np=request.getParameter("np");
-			tp=request.getParameter("tp");
-			
-			pr=new Proveedores(nitp,cp,dp,np,tp);
-			
-			prc=new ProveedoresCRUD();
-			
-			t=prc.modificardatosproveedor(pr);
-			
-			if(t) {
+			try {
+				nitp=Float.parseFloat(request.getParameter("nitp"));
+				cp=request.getParameter("cp");
+				dp=request.getParameter("dp");
+				np=request.getParameter("np");
+				tp=request.getParameter("tp");
 				
-				JOptionPane.showMessageDialog(null, "El proveedor fue actualizado");
+				pr=new Proveedores(nitp,cp,dp,np,tp);
+				
+				prc=new ProveedoresCRUD();
+				
+				t=prc.modificardatosproveedor(pr);
+				
+				if(t) {
+					
+					JOptionPane.showMessageDialog(null, "El proveedor fue actualizado");
+					response.sendRedirect("proveedores.jsp");
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El proveedor no fue encontrado");
+					response.sendRedirect("proveedores.jsp");
+					
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese un NIT válido, por favor");
 				response.sendRedirect("proveedores.jsp");
-				
-			}
-			
-			else {
-				
-				JOptionPane.showMessageDialog(null, "El proveedor no fue encontrado");
-				response.sendRedirect("proveedores.jsp");
-				
 			}
 		}
 		
 		if (request.getParameter("btnsearch")!=null) {
-			
-			nitp=Float.parseFloat(request.getParameter("nitp"));
-			
-			pr=new Proveedores(nitp);
-			
-			prc=new ProveedoresCRUD();
-			
-			pro=prc.buscardatosproveedor(pr);
-			
-			nitp=pro.getNitproveedor();
-			cp=pro.getCiudad_proveedor();
-			dp=pro.getDireccion_proveedor();
-			np=pro.getNombre_proveedor();
-			tp=pro.getTelefono_proveedor();
-			
-			if(nitp!=null) {
+			try {
+				nitp=Float.parseFloat(request.getParameter("nitp"));
 				
-				JOptionPane.showMessageDialog(null, "El provedor fue encontrado");
-				response.sendRedirect("tablaproveedores.jsp?nitp="+nitp+"&&cp="+cp+"&&dp="+dp+"&&np="+np+"&&tp="+tp);
+				pr=new Proveedores(nitp);
 				
-			}
-			
-			else {
+				prc=new ProveedoresCRUD();
 				
-				JOptionPane.showMessageDialog(null, "El proveedor no fue encontrado");
+				pro=prc.buscardatosproveedor(pr);
+				
+				nitp=pro.getNitproveedor();
+				cp=pro.getCiudad_proveedor();
+				dp=pro.getDireccion_proveedor();
+				np=pro.getNombre_proveedor();
+				tp=pro.getTelefono_proveedor();
+				
+				if(nitp!=null) {
+					
+					JOptionPane.showMessageDialog(null, "El proveedor fue encontrado");
+					response.sendRedirect("proveedores.jsp?nitp="+nitp+"&&cp="+cp+"&&dp="+dp+"&&np="+np+"&&tp="+tp);
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El proveedor no fue encontrado");
+					response.sendRedirect("proveedores.jsp");
+					
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese un NIT válido, por favor");
 				response.sendRedirect("proveedores.jsp");
-				
 			}
 		}
 	}
