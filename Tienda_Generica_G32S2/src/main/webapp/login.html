@@ -16,13 +16,25 @@
 	<fieldset class="cont_ingreso">
 		<legend>Bienvenidos</legend>
 		<form action="ServletLogin" method="GET">
-			<label for="usu">Usuario</label> <input type="text" name="usu"
-				id="usu" placeholder="Digite su usuario" required="true"> <label
-				for="pass">Contraseña</label> <input type="password" name="pass"
-				id="pass" placeholder="Digite su contraseña" required="true">
-			<input type="submit" name="btningreso" value="Ingresar"
-				class="btningreso-login">
+			<label for="usu">Usuario</label>
+			<input type="text" name="usu" id="usu" placeholder="Digite su usuario" required="true">
+			<label for="pass">Contraseña</label>
+			<input type="password" name="pass" id="pass" placeholder="Digite su contraseña" required="true">
+			<input type="submit" name="btningreso" value="Ingresar" class="btningreso-login">
+		</form>
+		<form class="form2">
+			<label>Mostrar contraseña <input type="checkbox" onclick="myFunction()"></label>
 		</form>
 	</fieldset>
+<script>
+function myFunction() {
+  var x = document.getElementById("pass");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 </body>
 </html>
