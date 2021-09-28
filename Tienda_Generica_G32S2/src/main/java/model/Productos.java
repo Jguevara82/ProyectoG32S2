@@ -20,6 +20,8 @@ public class Productos {
 		this.precio_venta = precio_venta;
 	}
 	
+	
+
 	public int getCodigo_producto() {
 		return codigo_producto;
 	}

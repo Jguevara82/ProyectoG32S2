@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -14,7 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import javax.swing.JOptionPane;
 
+import model.Productos;
 import model.ProductosCRUD;
+import model.UsuarioCRUD;
+import model.Usuarios;
 
 /**
  * Servlet implementation class Prueba
@@ -44,7 +48,15 @@ public class ServletProductos extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		int cp,ni;
+		double iv,pc,pv;
+		String np;
+		Boolean t;
+		
+		Productos prod;
+		ProductosCRUD pcrud;
+		
 		Part archivocsv= request.getPart("archivo");
 		String url="C:\\git\\ProyectoG32S2\\Tienda_Generica_G32S2\\src\\main\\webapp\\documents\\";
 		String url2="C:\\\\git\\\\ProyectoG32S2\\\\Tienda_Generica_G32S2\\\\src\\\\main\\\\webapp\\\\documents\\\\";
@@ -80,6 +92,40 @@ public class ServletProductos extends HttpServlet {
 				response.sendRedirect("productos.jsp?men=Error al cargar el archivo");
 			}
 		}
+		
+		if(request.getParameter("btnupdate")!=null) {
+			try {
+				cp=Integer.parseInt(request.getParameter("cp"));
+				iv=Double.parseDouble(request.getParameter("iv"));
+				ni=Integer.parseInt(request.getParameter("ni"));
+				np=request.getParameter("np");
+				pc=Double.parseDouble(request.getParameter("pc"));
+				pv=Double.parseDouble(request.getParameter("pv"));
+				
+				
+				prod=new Productos(cp, iv, ni, np, pc, pv);
+				
+				pcrud=new ProductosCRUD();
+				
+				t=pcrud.modificardatosproducto(prod);
+				
+				if(t) {
+					
+					JOptionPane.showMessageDialog(null, "El producto fue actualizado");
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El producto no fue encontrado");
+				}
+				response.sendRedirect("productos.jsp");
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Ingrese un código válida, por favor");
+				response.sendRedirect("productos.jsp");
+			}	
+		}
+		}
+
 	}
 
-}
+

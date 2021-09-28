@@ -31,4 +31,32 @@ public class ProductosCRUD {
 		}
 		return x;
 	}
+	
+	public boolean modificardatosproducto(Productos prod) {
+		
+		int x;
+		Boolean dat=false;
+		try {
+			
+			ps=cn.prepareStatement("UPDATE productos SET codigo_producto='"+prod.getCodigo_producto()+"',"
+											+ "ivacompra='"+prod.getIvacompra()+"',"
+											+ "nitproveedor='"+prod.getNitproveedor()+"',"
+											+ "nombre_producto='"+prod.getNombre_producto()+"',"
+											+ "precio_compra='"+prod.getPrecio_compra()+"',"
+											+ "precio_venta='"+prod.getPrecio_venta()+"'"
+											+ "WHERE codigo_producto='"+prod.getCodigo_producto()+"'");
+			x=ps.executeUpdate();
+			if (x>0) {
+				dat=true;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
+		return dat;
+		
+	}
 }
