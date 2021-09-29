@@ -1,12 +1,19 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
+
+import org.apache.jasper.tagplugins.jstl.core.Out;
+
+import com.google.gson.Gson;
 
 import model.UsuarioCRUD;
 import model.Usuarios;
@@ -36,6 +43,9 @@ public class ServletCRUDUsuario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter pw=response.getWriter();
+		
 		Float cu;
 		String eu,nu, p, u;
 		Boolean t;
@@ -44,6 +54,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 		Usuarios us;
 		UsuarioCRUD uc;
 		
+		//1
 		if (request.getParameter("btninsert")!=null) {
 			
 			try{
@@ -77,6 +88,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 			}
 		}
 		
+		//2
 		if (request.getParameter("btndelete")!=null) {
 			try {
 				cu=Float.parseFloat(request.getParameter("cu"));
@@ -102,6 +114,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 			}
 		}
 		
+		//3
 		if (request.getParameter("btnupdate")!=null) {
 			try {
 				cu=Float.parseFloat(request.getParameter("cu"));
@@ -133,6 +146,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 			}	
 		}
 		
+		//4
 		if (request.getParameter("btnsearch")!=null) {
 			try {
 				cu=Float.parseFloat(request.getParameter("cu"));
@@ -167,5 +181,22 @@ public class ServletCRUDUsuario extends HttpServlet {
 				response.sendRedirect("usuarios.jsp");
 			}
 		}
+		
+		//5
+		ArrayList<Usuarios> listUsu=new ArrayList<>();
+		uc=new UsuarioCRUD();
+		listUsu=uc.listarusuarios();
+		Gson gs=new Gson();
+		
+		pw.println(gs.toJson(listUsu));
+		
+		/*if (request.getParameter("btnlist")!=null) {
+			try {
+				
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, ""+e);
+			}
+		}*/
+		
 	}
 }

@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import controller.ConnectionDB;
 
@@ -112,19 +113,18 @@ public class UsuarioCRUD {
 		
 	}
 	
-public int buscarUsuLogin(Usuarios us) {
+	public ArrayList<Usuarios> listarusuarios() {
 		
-		int bandera = 0;
+		ArrayList<Usuarios> listUsu=new ArrayList<>();
+
 		try {
 			
-			ps=cn.prepareStatement("SELECT * FROM usuarios WHERE usuario=? and password=?");
-			ps.setString(1, us.getUsuario());
-			ps.setString(2, us.getPassword());
+			ps=cn.prepareStatement("SELECT * FROM usuarios");
 			rs=ps.executeQuery();
 						
 			while (rs.next()) {
-				bandera = 1;
 				usu=new Usuarios(rs.getFloat(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+				listUsu.add(usu);
 			}
 						
 		} catch (SQLException e) {
@@ -133,7 +133,32 @@ public int buscarUsuLogin(Usuarios us) {
 			
 		}
 		
-		return bandera;
+		return listUsu;
 		
 	}
+	
+	public int buscarUsuLogin(Usuarios us) {
+			
+			int bandera = 0;
+			try {
+				
+				ps=cn.prepareStatement("SELECT * FROM usuarios WHERE usuario=? and password=?");
+				ps.setString(1, us.getUsuario());
+				ps.setString(2, us.getPassword());
+				rs=ps.executeQuery();
+							
+				while (rs.next()) {
+					bandera = 1;
+					usu=new Usuarios(rs.getFloat(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+				}
+							
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+			}
+			
+			return bandera;
+			
+		}
 }

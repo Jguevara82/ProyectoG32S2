@@ -9,7 +9,7 @@ table{
 
 tr{
     border: 2px solid rgb(255, 255, 255);
-    background-color: #212120;
+    background-color: rgb(255, 255, 255);
     height: 40px;
 }
 
@@ -24,7 +24,7 @@ th{
 }
 
 td{
-	color: #212120;
+	color: rgb(0, 0, 0);
     border: 1px solid rgb(255, 255, 255);
     font-family: serif, arial;
     font-size: 1.2em;
