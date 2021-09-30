@@ -2,9 +2,10 @@
  * 
  */
 $(document).ready(function(){
-	alert("En la funcion");
+	
+//Lista	
 function listarUsuarios(){
-	alert("En la funcion");
+	alert("Lista BD");
 $.ajax({
 	type:"post",
 	url:"ServletCRUDUsuario",
@@ -22,8 +23,17 @@ $.ajax({
 });
 
 }
+
 $('#list').on('click',function(){
 	listarUsuarios();
 });
+
+//Crear
+
+//Eliminar
+
+//Actualizar
+
+//Buscar
 
 });
