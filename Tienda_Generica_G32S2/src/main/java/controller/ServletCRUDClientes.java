@@ -1,12 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Objects;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
+
+import com.google.gson.Gson;
 
 import model.Clientes;
 import model.ClientesCRUD;
@@ -38,6 +43,9 @@ public class ServletCRUDClientes extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter pw=response.getWriter();
 		
 		Float cc;
 		String dc,ec, nc, tc;
@@ -177,6 +185,54 @@ public class ServletCRUDClientes extends HttpServlet {
 			}
 		}
 		
+		
+		
+//inicio de validacion para buscar el cliente usando json	
+		Gson gs=new Gson();
+		String buscarcli = request.getParameter("consultcli");
+
+		if (buscarcli.equals("traercli")) {
+			cc =  Float.valueOf(request.getParameter("cedulabuscar"));
+			cl=new Clientes(cc);		
+			clc=new ClientesCRUD();		
+			cli=clc.buscardatoscliente(cl);
+			if(Objects.isNull(cli)) {
+				JOptionPane.showMessageDialog(null, "no se encuentra un usuario con ese numero de cedula");			
+				pw.println(gs.toJson(false));	
+			}else {
+				pw.println(gs.toJson(cli));	
+			}
+		
+		}
+		//fin de validacion para buscar el cliente usando json	
+		
+		
+		//inicio de validacion para crear el cliente usando json
+		String crearcli = request.getParameter("consultcli");
+		 if (crearcli.equals("crearcli")) {
+			 cc =  Float.valueOf(request.getParameter("cedulacrear"));
+			 dc = request.getParameter("direccioncrear");
+			 ec = request.getParameter("emailcrear");
+			 nc = request.getParameter("nombrecrear");
+			 tc = request.getParameter("telcrear");
+			 
+			 cl = new Clientes(cc, dc, ec, nc, tc);
+			 clc = new ClientesCRUD();	
+			 cli=clc.buscardatoscliente(cl);
+			 if(Objects.isNull(cli)) {
+			 t = clc.insertardatoscliente(cl);
+			 if(t) {
+				 JOptionPane.showMessageDialog(null, "Cliente registrado satisfactoriamente");
+					pw.println(gs.toJson(true));	
+			 }else {
+				 JOptionPane.showMessageDialog(null, "cliente no registrado, por favor comuniquese con soporte tecnico");
+					pw.println(gs.toJson(true));	
+			 }
+			 }else {
+				 JOptionPane.showMessageDialog(null, "El cliente con el numero de cedula ingresada ya esta registrado en el sistema");
+			 }
+		 }
+		//fin de validacion para crear el cliente usando json
 	}
 
 }

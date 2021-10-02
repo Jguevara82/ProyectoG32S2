@@ -113,9 +113,7 @@
 			</form>
 			</fieldset>
 		</section>
-		
 		<section>
-			
 			<table id="tabla"></table>	
 		</section>	
 		
