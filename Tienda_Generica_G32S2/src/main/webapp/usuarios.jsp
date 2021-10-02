@@ -18,6 +18,9 @@
 	<%!	String cu,eu,nu,p,u; %>
 	
 	<%
+		HttpSession sesion=request.getSession();
+	
+		String usu=(String)sesion.getAttribute("usu"); 
 		
 		cu=request.getParameter("cu");
 		eu=request.getParameter("eu");
@@ -45,8 +48,8 @@
 	            <li><a href="clientes.jsp">Clientes</a></li>
 	            <li><a href="proveedores.jsp">Proveedores</a></li>
 	            <li><a href="productos.jsp">Productos</a></li>
-	            <li><a href="#">Ventas</a></li>
-	            <li><a href="#">Reportes</a></li>
+	            <li><a href="ventas.jsp">Ventas</a></li>
+	            <li><a href="reportes.jsp">Reportes</a></li>
 	        </ul>
 	    </nav>
     </header>
@@ -93,6 +96,9 @@
 			</form>
 			</fieldset>
 			<fieldset class="cont-formactualizar">
+			<form action="">
+				<input value="<%=usu%>">
+			</form>
 			<form action="ServletCRUDUsuario" method="post">
 				<label>Cedula Usuario</label>
 				<input type="text" name="cu" value="<%=cu%>">
@@ -108,14 +114,8 @@
 				<label>Usuario</label>
 				<input type="text" name="u"value="<%=u%>">
 			</form>
-			<form action="">
-				<input type="button" name="btnlist" value="Listar" class="btn-formularios" id="list">
-			</form>
 			</fieldset>
 		</section>
-		<section>
-			<table id="tabla"></table>	
-		</section>	
 		
 	</main>
 </body>

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import org.apache.jasper.tagplugins.jstl.core.Out;
@@ -42,6 +43,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession sesion=request.getSession();
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter pw=response.getWriter();
@@ -162,6 +164,8 @@ public class ServletCRUDUsuario extends HttpServlet {
 				nu=usu.getNombre_usuario();
 				p=usu.getPassword();
 				u=usu.getUsuario();
+				
+				sesion.setAttribute("usu", u);
 				
 				if(cu!=null) {
 					
