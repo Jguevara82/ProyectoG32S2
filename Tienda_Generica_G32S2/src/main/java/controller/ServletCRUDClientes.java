@@ -55,39 +55,7 @@ public class ServletCRUDClientes extends HttpServlet {
 		Clientes cl;
 		ClientesCRUD clc;
 		
-		if (request.getParameter("btninsert")!=null) {
-			try {
-				cc=Float.parseFloat(request.getParameter("cc"));
-				dc=request.getParameter("dc");
-				ec=request.getParameter("ec");
-				nc=request.getParameter("nc");
-				tc=request.getParameter("tc");
-				
-				cl=new Clientes(cc, dc, ec, nc, tc);
-				
-				clc=new ClientesCRUD();
-				
-				t=clc.insertardatoscliente(cl);
-				
-				if(t) {
-					
-					JOptionPane.showMessageDialog(null, "El cliente fue registrado");
-					response.sendRedirect("clientes.jsp");
-					
-				}
-				
-				else {
-					
-					JOptionPane.showMessageDialog(null, "El cliente no fue registrado");
-					response.sendRedirect("clientes.jsp");
-					
-				}
-			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, "Ingrese una cédula válida, por favor");
-				response.sendRedirect("clientes.jsp");
-			}
-		}
-		
+
 		if (request.getParameter("btndelete")!=null) {
 			try {
 				cc=Float.parseFloat(request.getParameter("cc"));
@@ -150,46 +118,16 @@ public class ServletCRUDClientes extends HttpServlet {
 			}
 		}
 		
-		if (request.getParameter("btnsearch")!=null) {
-			try {
-				cc=Float.parseFloat(request.getParameter("cc"));
-				
-				cl=new Clientes(cc);
-				
-				clc=new ClientesCRUD();
-				
-				cli=clc.buscardatoscliente(cl);
-				
-				cc=cli.getCedula_cliente();
-				dc=cli.getDireccion_cliente();
-				ec=cli.getEmail_cliente();
-				nc=cli.getNombre_usuario();
-				tc=cli.getTelefono_cliente();
-				
-				if(cc!=null) {
-					
-					JOptionPane.showMessageDialog(null, "El cliente fue encontrado");
-					response.sendRedirect("clientes.jsp?cc="+cc+"&&dc="+dc+"&&ec="+ec+"&&nc="+nc+"&&tc="+tc);
-					
-				}
-				
-				else {
-					
-					JOptionPane.showMessageDialog(null, "El cliente no fue encontrado");
-					response.sendRedirect("clientes.jsp");
-					
-				}
-			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, "Ingrese una cédula válida, por favor");
-				response.sendRedirect("clientes.jsp");
-			}
-		}
-		
-		
+	
 		
 //inicio de validacion para buscar el cliente usando json	
 		Gson gs=new Gson();
 		String buscarcli = request.getParameter("consultcli");
+		String crearcli = request.getParameter("consultcli");
+		if(Objects.isNull(buscarcli) || Objects.isNull(crearcli)) {
+			 buscarcli = "";
+			 crearcli = "";
+		}
 
 		if (buscarcli.equals("traercli")) {
 			cc =  Float.valueOf(request.getParameter("cedulabuscar"));
@@ -208,7 +146,7 @@ public class ServletCRUDClientes extends HttpServlet {
 		
 		
 		//inicio de validacion para crear el cliente usando json
-		String crearcli = request.getParameter("consultcli");
+		
 		 if (crearcli.equals("crearcli")) {
 			 cc =  Float.valueOf(request.getParameter("cedulacrear"));
 			 dc = request.getParameter("direccioncrear");

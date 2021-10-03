@@ -73,7 +73,7 @@
 		</fieldset>
 		
 		<fieldset class="cont-formactualizar">
-			<form action="ServletCRUDClientes" method="post">
+			<form action="ServletCRUDClientes" method="post" id="formActCli">
 				<label>Cedula cliente</label> 
 				<input type="text" name="cc" required="true">
 				<label>Direccion cliente</label> 
