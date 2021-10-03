@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jusuario.js"></script>
-	<script type="text/javascript" src="js/cliente.js"></script>
     <title>Reportes</title>
     <link rel="stylesheet" href="css/menu.css"> 
     <link rel="stylesheet" href="css/formulariosTodos.css">
@@ -35,7 +34,19 @@
 		<form action="">
 			<input type="button" name="btnlist" value="Listado de Usuarios" class="btn-formularios" id="list">
 		</form>
-		<table id="tabla"></table>
+		<table id="tabla">
+			<thead>
+				<tr id="encabezados">
+					<th>Cedula Usuario</th>
+					<th>Email Usuario</th>
+					<th>Nombre Usuario</th>
+					<th>Password</th>
+					<th>Usuario</th>
+				</tr>
+			</thead>
+			<tbody id="datos">
+			</tbody>
+		</table>
 		<form action="">
 			<input type="button" name="btnlist" value="Listado de Clientes" class="btn-formularios" id="listc">
 		</form>

@@ -69,7 +69,7 @@
 				<input type="text" name="p">
 				<label>Usuario</label>
 				<input type="text" name="u">
-				<input type="submit" name="btninsert" value="Crear" class="btn-formularios">	
+				<input type="button" name="" value="Crear" class="btn-formularios" id="btinsert">	
 			</form>
 			</fieldset>
 			
@@ -96,23 +96,15 @@
 			</form>
 			</fieldset>
 			<fieldset class="cont-formactualizar">
-			<form action="">
+			<%-- <form action="">
 				<input value="<%=usu%>">
-			</form>
+			</form> --%>
 			<form action="ServletCRUDUsuario" method="post">
 				<label>Cedula Usuario</label>
-				<input type="text" name="cu" value="<%=cu%>">
-				<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios">	
+				<input type="text" name="cu" value="<%=cu%>" id="cu">
+				<input type="button" name="btnsearch" value="Buscar" class="btn-formularios" id="usearch">	
 			</form>
-			<form action="">
-				<label>Email Usuario</label>
-				<input type="text" name="eu" value="<%=eu%>">
-				<label>Nombre Usuario</label>
-				<input type="text" name="nu"value="<%=nu%>">
-				<label>Password Usuario</label>
-				<input type="text" name="p"value="<%=p%>">
-				<label>Usuario</label>
-				<input type="text" name="u"value="<%=u%>">
+			<form id="datos">
 			</form>
 			</fieldset>
 		</section>
