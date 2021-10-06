@@ -1,17 +1,67 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Tienda Generica</title>
-<link rel="stylesheet" href="css/menu.css">
-<link rel="stylesheet" href="css/formulariosTodos.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tienda Generica</title>
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/ventas.css">
+<!-- FORMULARIO PARA CONSULTAR PRODUCTO -->
+<script>
+        a = 0;
+        function addProducto(){
+                a++;
+        
+                var fieldset = document.createElement('fieldset');
+                fieldset.setAttribute('class', 'producto');
+                fieldset.setAttribute('style', 'display:flex');
+                //dentro del fieldset se agregan las siguientes etiqutas las cuales se pueden parametrizar a la medida
+                fieldset.innerHTML = 
+                        `<fieldset class="cont-formcliente">
+                        <form action="" method="post">
+                        <div class="">
+                            <label>Cedula</label>
+                            <input class="form-control" name="" type="text">
+                            <input type="submit" value="Consultar" class="btnconsultar" name="ced">
+                        </div>
+                        <div class="">
+                            <label>Nombre del cliente</label>
+                            <input class="form-control" name="" type="text"/>
+                        </div>
+                        </form>
+			                  </fieldset>
+                        <fieldset class="cont-formcliente">
+                        <form action="" method="post">
+                        <div class="">
+                            <label>Codigo del producto</label>
+                            <input class="form-control" name="" type="number"/>
+                            <input type="submit" value="Consultar" class="btnconsultar">
+                        </div>
+                        <div class="">
+                            <label>Nombre del producto</label>
+                            <input class="form-control" name="" type="number"/>
+                        </div>
+                        <div class="">
+                            <label>Cantidad</label>
+                            <input class="form-control" name="" type="number"/>
+                            <input type="submit" value="Confirmar" class="btnconsultar">
+                        </div>
+                        <div class="col">
+                            <input type="button" class="btn btn-success" id="add_producto()" onClick="addProducto()" value="+" />
+                        </div>
+                        </form>
+			            </fieldset>`;
+                document.getElementById('productos').appendChild(fieldset);document.getElementById('productos').appendChild(fieldset);
+        }
+        </script>
+
+
 </head>
 <body>
 	<header class="cont-header" id="cont-header">
         <div class="logo-titulo" id="logo-titulo">
-            <h1 class="h1" id="h1">Ventas</h1>
+            <h1 class="h1" id="h1">Ventasl</h1>
         </div>
 	    <nav class="nav">
 	        <ul>
@@ -24,39 +74,39 @@
 	        </ul>
 	    </nav>
     </header>
-	
+    
+<!-- TABLA DONDE SE CARGAN LOS PRODUCTOS -->	
 	<main>
-		<fieldset class="cont-formbuscar">
-			<form action="">
-				<label>Cedula del cliente</label>	
-				<input type="text" name="ced">
-				<input type="submit" name="btnsearch" value="Consultar" class="btn-formularios">
-				<label>Cliente consultado</label>
-				<input type="text">
-			</form>
-		</fieldset>
-		<fieldset class="cont-formbuscar">
-			<form action="#">
-				<label class="labelventas">Digite el codigo del producto</label>
-				<input type="text" name="prod">
-				<input type="submit" name="btnsearchprod" value="Consultar" class="btn-formularios">
-				<label class="labelventas">Nombre del producto</label>
-				<input type="text" name="nprod">
-				<label class="labelventas">Digite la cantidad del producto</label>
-				<input type="text" name="cprod">
-				<input type="submit" name="btnconfirm" value="Confirmar" class="btn-formularios">
-	
-				<label class="labelventas">Valor total</label>
-				<input type="text" name="totventa">
-				<label class="labelventas">Total IVA</label>
-				<input type="text" name="totiva">
-				<label class="labelventas">Total con IVA</label>
-				<input type="text" name="total">
-				<label>-----------------------------</label>
-				<label >Consecutivo</label>
-				<input type="text" name="consecutivo">
-			</form>
-		</fieldset>
+		<div class="container" display="flex">
+            <h3>Añadir producto</h3>
+            <form action="" id="formulario" method="get">
+                <div class="col"><input type="button" class="btn btn-success" id="add_producto()" onClick="addProducto()" value="+" /></div>
+            <!-- El id="productos" indica que la función de JavaScript dejará aquí el resultado -->
+                <fieldset class="row" id="productos" display="flex"></fieldset>
+            </form>
+        </div>
+        <div class="tabla">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="3">Precios</th>
+                <th colspan="2">Cliente</th>
+                <th colspan="4">Producto</th>
+              </tr>
+              <tr>
+                <th>Total venta</th>
+                <th>Total IVA</th>
+                <th>Total con IVA</th>
+                <th>Cedula</th>
+                <th>Nombre del cliente</th>
+                <th>Codigo del producto</th>
+                <th>Nombre del producto</th>
+                <th>Cantidad</th>
+                <th>Consecutivo</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
 	</main>
 </body>
 </html>

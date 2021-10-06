@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+
+p       {text-align: center; display: block;}
+
+form    {display: flex; flex-direction: row;}
+.row, .producto{border: 0;}
+.form-control, .btnconsultar    {display: inline;}
+
+.tabla          { overflow: auto; height: 400px; margin-top: 5%; }
+.tabla thead th { position: sticky; top: 0; z-index: 1; }
+
+
+table  { width: 80%; margin: auto; border: black 1px solid;}
+th, td { padding: 8px 16px; border: black 1px solid;}
+th     { background:#eee; }
+
+input[type="text"]{
+  width: 50%;
+  padding-right: 70px;
+}
+input[type="number"]{
+  width: 50%;
+  padding-right: 70px;
+}
+input[type="submit"]{
+  margin-left: -40px;
+}
