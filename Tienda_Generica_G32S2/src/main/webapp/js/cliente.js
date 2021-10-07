@@ -77,8 +77,6 @@ formCrearCli.addEventListener('submit', (e) =>{
 });
 
 
-
-
  formubuscarCli.addEventListener('submit', (e) => {
 e.preventDefault();
 var cedula = document.getElementById("ccBuscar").value;

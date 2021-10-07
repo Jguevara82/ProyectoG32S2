@@ -7,8 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+     <script type="text/javascript" src="js/clienteVentas.js"></script>
     <script type="text/javascript" src="js/ventas.js"></script>
-    <script type="text/javascript" src="js/cliente.js"></script>
 	<title>Tienda Generica</title>
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/tablasTodas.css">
@@ -74,9 +74,14 @@
             		<fieldset>
 			            <div class="dTable" id="cliente">
 			            	<div class="dRow">
-			            		<div class="dCell"><label>Cedula cliente</label></div>
-								<div class="dCell"><input class="" name="" type="text"></div>
-							    <div class="dCell"><input type="submit" name="btnsearch" value="Buscar" class="btn-formularios" id="btnsearchcli"></div>
+			            		<div class="dCell">
+			            			<label>Cedula cliente</label>
+			            		</div>
+								<div class="dCell">
+									<input class="" name="ccBuscar" id="ccBuscar" type="text">
+								</div>
+							    <div class="dCell">
+							    	<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios" id="btnsearchcli"></div>
 							</div>
 							<div class="dRow">
 							    <div class="dCell"><label>Nombre del cliente</label></div>
