@@ -17,15 +17,14 @@ public class ConnectionDB {
 			try {
 				
 				cnx=DriverManager.getConnection("jdbc:mysql://localhost/bd_tiendagenerica","root","");
-				JOptionPane.showMessageDialog(null, "Connected");
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Error de conexion BD"+e);
 			}		
 		} catch (ClassNotFoundException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Error de clase en la conexion BD"+e);
 			
 		
 		}

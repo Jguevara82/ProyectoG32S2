@@ -8,7 +8,7 @@ main {
 
 .cont-formcrear {
 	display: inline-block;
-	width: 22%;
+	width: 30%;
 	margin: auto;
 	height: auto;
 	border-radius: 20px;
@@ -17,7 +17,7 @@ main {
 
 .cont-formeliminar {
 	display: inline-block;
-	width: 22%;
+	width: 30%;
 	margin: auto;
 	height: auto;
 	border-radius: 20px;
@@ -26,7 +26,7 @@ main {
 
 .cont-formactualizar {
 	display: inline-block;
-	width: 22%;
+	width: 30%;
 	margin: auto;
 	height: auto;
 	border-radius: 20px;
@@ -35,7 +35,7 @@ main {
 
 .cont-formbuscar {
 	display: inline-block;
-	width: 22%;
+	width: 30%;
 	margin-left: auto;
 	margin-right: 200px;
 	height: auto;

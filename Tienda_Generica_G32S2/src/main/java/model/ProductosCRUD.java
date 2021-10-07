@@ -65,16 +65,16 @@ public class ProductosCRUD {
 		try {
 			
 			ps=cn.prepareStatement("SELECT * FROM productos WHERE codigo_producto=?");
-			ps.setInt(1, prod.getCodigo_producto());
+			ps.setFloat(1, prod.getCodigo_producto());
 			rs=ps.executeQuery();
-						
+			
 			while (rs.next()) {
 				pd=new Productos(rs.getInt(1), rs.getDouble(2), rs.getInt(3), rs.getString(4), rs.getDouble(5), rs.getDouble(6));
 			}
 						
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "en el crud"+prod.getCodigo_producto()+"espacio"+e);
 			
 		}
 		

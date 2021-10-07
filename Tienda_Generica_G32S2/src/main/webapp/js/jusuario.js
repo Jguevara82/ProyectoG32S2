@@ -5,9 +5,9 @@ $(document).ready(function(){
 	
 //Lista
 
-function listarUsuarios(){
+$('#list').on('click',function(e){
 	
-	alert("Lista Usuarios");
+	e.preventDefault();
 	
 $.ajax({
 	type:"post",
@@ -25,20 +25,9 @@ $.ajax({
 	}
 });
 
-}
-
-$('#list').on('click',function(){
-	listarUsuarios();
 });
 
 //Crear
-
-function crearUsuario(){
-	
-	alert("Crear usuario");
-
-
-}
 
 $('#btinsert').on('click',function(){
 	crearUsuario();
@@ -50,9 +39,9 @@ $('#btinsert').on('click',function(){
 
 //Buscar
 
-function buscarUsuario(cu){
+$('#usearch').on('click',function(){
 	
-	alert("Buscar Usuario");
+	var cu=document.getElementById('cu').value;
 	
 $.ajax({
 	type:"post",
@@ -68,12 +57,6 @@ $.ajax({
 	}
 });
 
-}
-
-$('#usearch').on('click',function(){
-	var cu=document.getElementById('cu').value;
-	alert(cu);
-	buscarUsuario(cu);
 });
 
 });
