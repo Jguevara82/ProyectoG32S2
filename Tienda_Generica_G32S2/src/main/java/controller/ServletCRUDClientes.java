@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.io.PrintWriter;
 
@@ -15,6 +16,7 @@ import com.google.gson.Gson;
 
 import model.Clientes;
 import model.ClientesCRUD;
+import model.UsuarioCRUD;
 
 /**
  * Servlet implementation class ServletCRUDClientes
@@ -48,13 +50,16 @@ public class ServletCRUDClientes extends HttpServlet {
 		PrintWriter pw=response.getWriter();
 		
 		Float cc;
-		String dc,ec, nc, tc;
+		String dc,ec, nc, tc, bt;
 		Boolean t;
 		
 		Clientes cli;
 		Clientes cl;
 		ClientesCRUD clc;
 		
+		ArrayList<Clientes> listCli;
+		
+		bt=request.getParameter("boton");
 
 		if (request.getParameter("btndelete")!=null) {
 			try {
@@ -118,7 +123,16 @@ public class ServletCRUDClientes extends HttpServlet {
 			}
 		}
 		
-	
+		if (bt.equals("btnlist")) {
+			
+			Gson gs=new Gson();
+			listCli=new ArrayList<>();
+			clc=new ClientesCRUD();
+			listCli=clc.listarclientes();
+
+			pw.println(gs.toJson(listCli));
+			
+		}
 		
 //inicio de validacion para buscar el cliente usando json	
 		Gson gs=new Gson();

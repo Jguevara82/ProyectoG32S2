@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import model.UsuarioCRUD;
@@ -29,22 +30,29 @@ public class ServletLogin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession cedUsu=request.getSession();
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		String usuario = request.getParameter("usu");
 		String clave = request.getParameter("pass");
+		String cedula_usuario;
 
 		Usuarios us;
-		int bandera;
+		Usuarios usu;
 		UsuarioCRUD uc;
+		
 		if (request.getParameter("btningreso") != null) {
 
 			us = new Usuarios(clave, usuario);
 			uc = new UsuarioCRUD();
-			bandera = uc.buscarUsuLogin(us);
-
-			if (bandera != 0) {
+			usu = uc.buscarUsuLogin(us);
+			cedula_usuario=Float.toString(usu.getCedula_usuario());
+			
+			cedUsu.setAttribute("cedUsu", cedula_usuario);
+			cedUsu.setAttribute("objUsu", usu);
+			
+			if (usu.getCedula_usuario() != null) {
 				JOptionPane.showMessageDialog(null, "usuario y clave correctos");
 				response.sendRedirect("menu.html");
 			} else {

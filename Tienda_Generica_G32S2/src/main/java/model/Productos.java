@@ -11,7 +11,6 @@ public class Productos {
 	
 	public Productos(float codigo_producto, double ivacompra, float nitproveedor, String nombre_producto,
 			double precio_compra, double precio_venta) {
-		super();
 		this.codigo_producto = codigo_producto;
 		this.ivacompra = ivacompra;
 		this.nitproveedor = nitproveedor;
@@ -30,8 +29,10 @@ public class Productos {
 	}
 
 	public Productos(float codigo_producto) {
-		super();
 		this.codigo_producto = codigo_producto;
+	}
+
+	public Productos() {
 	}
 
 	public float getCodigo_producto() {

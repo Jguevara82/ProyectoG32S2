@@ -50,7 +50,19 @@
 		<form action="">
 			<input type="button" name="btnlist" value="Listado de Clientes" class="btn-formularios" id="listc">
 		</form>
-		<table id="tablac"></table>
+		<table id="tablac">
+			<thead>
+				<tr id="encabezados">
+					<th>Cedula Cliente</th>
+					<th>Direccon CLiente</th>
+					<th>Email Cliente</th>
+					<th>Nombre Cliente</th>
+					<th>Telefono CLiente</th>
+				</tr>
+			</thead>
+			<tbody id="datosc">
+			</tbody>
+		</table>
 		<form action="">
 			<input type="button" name="btnlist" value="Ventas por Cliente" class="btn-formularios" id="listv">
 		</form>

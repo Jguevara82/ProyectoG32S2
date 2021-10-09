@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 //import javax.servlet.annotation.MultipartConfig;
@@ -139,6 +140,17 @@ public class ServletProductos extends HttpServlet {
 			pd=pcrud.buscardatosproducto(prod);
 						
 			pw.println(gs.toJson(pd));
+			
+		}
+		
+		if (bt.equals("btnlist")) {
+			
+			ArrayList<Productos> list=new ArrayList<Productos>();
+			
+			pcrud=new ProductosCRUD();
+			list=pcrud.listarCodigoProducto();
+						
+			pw.println(gs.toJson(list));
 			
 		}
 	}

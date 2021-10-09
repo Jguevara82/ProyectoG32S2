@@ -3,11 +3,10 @@
  */
 $(document).ready(function(){
 	
-//Lista
+//Lista usuario
 
-$('#list').on('click',function(e){
+$('#list').on('click',function(){
 	
-	e.preventDefault();
 	
 $.ajax({
 	type:"post",
@@ -21,6 +20,30 @@ $.ajax({
 		datos.innerHTML='';
 		for(let i of result){
 			datos.innerHTML+=`<tr><td>${i.cedula_usuario}</td><td>${i.email_usuario}</td><td>${i.nombre_usuario}</td><td>${i.password}</td><td>${i.usuario}</td></tr>`;
+		}
+	}
+});
+
+});
+
+//lista cliente
+
+$('#listc').on('click',function(e){
+	
+	e.preventDefault();
+	
+$.ajax({
+	type:"post",
+	url:"ServletCRUDClientes",
+	dataType:"json",
+	data: {boton : "btnlist"},
+	success: function(result){
+		console.log("success");
+		console.log(result);
+		let datos=document.querySelector('#datosc');
+		datos.innerHTML='';
+		for(let i of result){
+			datos.innerHTML+=`<tr><td>${i.cedula_cliente}</td><td>${i.direccion_cliente}</td><td>${i.email_cliente}</td><td>${i.nombre_cliente}</td><td>${i.telefono_cliente}</td></tr>`;
 		}
 	}
 });

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import controller.ConnectionDB;
 
@@ -112,6 +113,30 @@ public class ClientesCRUD {
 		}
 		
 		return cli;
+		
+	}
+	
+public ArrayList<Clientes> listarclientes() {
+		
+		ArrayList<Clientes> listCli=new ArrayList<>();
+
+		try {
+			
+			ps=cn.prepareStatement("SELECT * FROM clientes");
+			rs=ps.executeQuery();
+						
+			while (rs.next()) {
+				cli=new Clientes(rs.getFloat(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+				listCli.add(cli);
+			}
+						
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
+		return listCli;
 		
 	}
 	

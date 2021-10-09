@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -18,7 +19,7 @@ public class ProductosCRUD {
 	ResultSet rs;
 	
 	Productos pd;
-	
+		
 	public boolean cargarproductos(String url) {
 		boolean x=false;
 		try {
@@ -80,5 +81,25 @@ public class ProductosCRUD {
 		
 		return pd;
 		
+	}
+	
+	public ArrayList<Productos> listarCodigoProducto(){
+		
+		ArrayList<Productos> list=new ArrayList<Productos>();
+		
+		try {
+		
+			ps=cn.prepareStatement("SELECT codigo_producto FROM productos");
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				pd=new Productos(rs.getFloat(1));
+				list.add(pd);
+			}
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			
+		}
+		return list;
 	}
 }

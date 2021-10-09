@@ -10,7 +10,6 @@ public class Usuarios {
 	
 	public Usuarios(Float cedula_usuario, String email_usuario, String nombre_usuario, String password,
 			String usuario) {
-		super();
 		this.cedula_usuario = cedula_usuario;
 		this.email_usuario = email_usuario;
 		this.nombre_usuario = nombre_usuario;
@@ -19,13 +18,11 @@ public class Usuarios {
 	}
 	
 	public Usuarios(Float cedula_usuario) {
-		super();
 		this.cedula_usuario = cedula_usuario;
 	}
 	
 
 	public Usuarios(String password, String usuario) {
-		super();
 		this.password = password;
 		this.usuario = usuario;
 	}

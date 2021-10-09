@@ -3,6 +3,8 @@ package model;
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import controller.ConnectionDB;
 
 public class UsuarioCRUD {
@@ -137,9 +139,9 @@ public class UsuarioCRUD {
 		
 	}
 	
-	public int buscarUsuLogin(Usuarios us) {
+	public Usuarios buscarUsuLogin(Usuarios us) {
 			
-			int bandera = 0;
+			
 			try {
 				
 				ps=cn.prepareStatement("SELECT * FROM usuarios WHERE usuario=? and password=?");
@@ -148,8 +150,9 @@ public class UsuarioCRUD {
 				rs=ps.executeQuery();
 							
 				while (rs.next()) {
-					bandera = 1;
+					
 					usu=new Usuarios(rs.getFloat(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+					
 				}
 							
 			} catch (SQLException e) {
@@ -158,7 +161,7 @@ public class UsuarioCRUD {
 				
 			}
 			
-			return bandera;
+			return usu;
 			
 		}
 }

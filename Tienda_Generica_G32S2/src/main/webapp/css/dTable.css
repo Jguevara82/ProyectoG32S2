@@ -2,7 +2,7 @@
 section{
 background-color: grey;
 margin: auto;
-max-width: 1000px;
+max-width: 700px;
 padding: 20px;
 }
 
@@ -11,7 +11,11 @@ margin:auto;
 }
 
 #cal{
-float: right;	
+margin: auto;	
+}
+
+#enviar{
+margin: auto;
 }
 
 .dTable{
