@@ -123,17 +123,17 @@ public class ServletCRUDClientes extends HttpServlet {
 			}
 		}
 		
-		if (bt.equals("btnlist")) {
-			
-			Gson gs=new Gson();
-			listCli=new ArrayList<>();
-			clc=new ClientesCRUD();
-			listCli=clc.listarclientes();
-
-			pw.println(gs.toJson(listCli));
-			
+		if(!Objects.isNull(bt)){
+			if (bt.equals("btnlist")) {
+				
+				Gson gs=new Gson();
+				listCli=new ArrayList<>();
+				clc=new ClientesCRUD();
+				listCli=clc.listarclientes();
+	
+				pw.println(gs.toJson(listCli));
+			}
 		}
-		
 //inicio de validacion para buscar el cliente usando json	
 		Gson gs=new Gson();
 		String buscarcli = request.getParameter("consultcli");
