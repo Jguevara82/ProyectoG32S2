@@ -62,7 +62,9 @@ public class ServletCRUDUsuario extends HttpServlet {
 		bt=request.getParameter("boton");
 		
 		//1
-		if (request.getParameter("btninsert")!=null) {
+		if (bt.equals("btninsert")) {
+			
+			JOptionPane.showMessageDialog(null, "insert sedrvlet");
 			
 			try{
 				cu=Float.parseFloat(request.getParameter("cu"));
@@ -96,7 +98,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 		}
 		
 		//2
-		if (request.getParameter("btndelete")!=null) {
+		if (bt.equals("btndelete")) {
 			try {
 				cu=Float.parseFloat(request.getParameter("cu"));
 				
@@ -122,7 +124,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 		}
 		
 		//3
-		if (request.getParameter("btnupdate")!=null) {
+		if (bt.equals("btnupdate")) {
 			try {
 				cu=Float.parseFloat(request.getParameter("cu"));
 				eu=request.getParameter("eu");

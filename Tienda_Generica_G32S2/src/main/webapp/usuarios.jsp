@@ -58,41 +58,41 @@
     	
     	<section>
 	    	<fieldset class="cont-formcrear">
-			<form action="ServletCRUDUsuario" method="post">
+			<form action="" method="post">
 				<label>Cedula Usuario</label>
-				<input type="text" name="cu">
+				<input type="text" id="cu">
 				<label>Email Usuario</label>
-				<input type="text" name="eu">
+				<input type="text" id="eu">
 				<label>Nombre Usuario</label>
-				<input type="text" name="nu">
+				<input type="text" id="nu">
 				<label>Password Usuario</label>
-				<input type="text" name="p">
+				<input type="text" id="p">
 				<label>Usuario</label>
-				<input type="text" name="u">
+				<input type="text" id="u">
 				<input type="button" name="" value="Crear" class="btn-formularios" id="btinsert">	
 			</form>
 			</fieldset>
 			
 			<fieldset class="cont-formeliminar">
-			<form action="ServletCRUDUsuario" method="post">
+			<form action="" method="post">
 				<label>Cedula Usuario</label>
-				<input type="text" name="cu">
-				<input type="submit" name="btndelete" value="Eliminar" class="btn-formularios">	
+				<input type="text" id="cud">
+				<input type="button" name="" value="Eliminar" class="btn-formularios" id="btdelete">	
 			</form>
 			</fieldset>
 			<fieldset class="cont-formactualizar">
-			<form action="ServletCRUDUsuario" method="post">
+			<form action="" method="post">
 				<label>Cedula Usuario</label>
-				<input type="text" name="cu">
+				<input type="text" id="cuu">
 				<label>Email Usuario</label>
-				<input type="text" name="eu">
+				<input type="text" id="euu">
 				<label>Nombre Usuario</label>
-				<input type="text" name="nu">
+				<input type="text" id="nuu">
 				<label>Password Usuario</label>
-				<input type="text" name="p">
+				<input type="text" id="pu">
 				<label>Usuario</label>
-				<input type="text" name="u">
-				<input type="submit" name="btnupdate" value="Actualizar" class="btn-formularios">	
+				<input type="text" id="uu">
+				<input type="button" name="" value="Actualizar" class="btn-formularios" id="btupdate">	
 			</form>
 			</fieldset>
 			<fieldset class="cont-formactualizar">
@@ -101,7 +101,7 @@
 			</form> --%>
 			<form action="ServletCRUDUsuario" method="post">
 				<label>Cedula Usuario</label>
-				<input type="text" name="cu" value="<%=cu%>" id="cu">
+				<input type="text" name="cu" value="<%=cu%>" id="cus">
 				<input type="button" name="btnsearch" value="Buscar" class="btn-formularios" id="usearch">	
 			</form>
 			<form id="datos">

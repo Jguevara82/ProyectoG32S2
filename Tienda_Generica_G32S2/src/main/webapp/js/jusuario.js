@@ -53,18 +53,76 @@ $.ajax({
 //Crear
 
 $('#btinsert').on('click',function(){
-	crearUsuario();
+	
+	var cu=document.getElementById('cu').value;
+	var eu=document.getElementById('eu').value;
+	var nu=document.getElementById('nu').value;
+	var p=document.getElementById('p').value;
+	var u=document.getElementById('u').value;
+	
+	
+$.ajax({
+	type:"post",
+	url:"ServletCRUDUsuario",
+	dataType:"json",
+	data: {boton : "btninsert", cu : cu, eu : eu, nu : nu, p : p, u : u},
+	success: function(result){
+		console.log("success");
+		console.log(result);
+	}
+});
+
 });
 
 //Eliminar
 
+$('#btdelete').on('click',function(){
+	
+	alert("en la funcion");
+	var cu=document.getElementById('cud').value;
+	
+$.ajax({
+	type:"post",
+	url:"ServletCRUDUsuario",
+	dataType:"json",
+	data: {boton : "btndelete", cu : cu},
+	success: function(result){
+		console.log("success");
+		console.log(result);
+	}
+});
+
+});
+
 //Actualizar
+
+$('#btupdate').on('click',function(){
+	
+	var cu=document.getElementById('cuu').value;
+	var eu=document.getElementById('euu').value;
+	var nu=document.getElementById('nuu').value;
+	var p=document.getElementById('pu').value;
+	var u=document.getElementById('uu').value;
+	
+	
+$.ajax({
+	type:"post",
+	url:"ServletCRUDUsuario",
+	dataType:"json",
+	data: {boton : "btnupdate", cu : cu, eu : eu, nu : nu, p : p, u : u},
+	success: function(result){
+		console.log("success");
+		console.log(result);
+	}
+});
+
+});
 
 //Buscar
 
 $('#usearch').on('click',function(){
 	
-	var cu=document.getElementById('cu').value;
+	var cu=document.getElementById('cus').value;
 	
 $.ajax({
 	type:"post",
