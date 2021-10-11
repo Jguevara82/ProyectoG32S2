@@ -126,7 +126,7 @@
 		            		<div class="dCell"><h1>No.</h1></div>
 		            		<div class="dCell"></div>
 		            		<div class="dCell"></div>
-		            		<div class="dCell"><input style="display: none" id="conCodV"></div>
+		            		<div class="dCell"><input id="conCodV"></div>
 		            		<div class="dCell"><input style="display: none" id="conCodDV"></div>
 							<div class="dCell"><label style="display: none" id="cedusu"><%=cedula_usuario %></label></div>
 		            		<div class="dCell"><label style="display: none">${objUsu.getCedula_usuario()}</label></div>
