@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 //import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +27,7 @@ import model.ProductosCRUD;
  * Servlet implementation class Prueba
  */
 @WebServlet("/ServletProductos")
-//@MultipartConfig
+@MultipartConfig
 public class ServletProductos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -56,7 +57,8 @@ public class ServletProductos extends HttpServlet {
 		
 		Float cp,ni;
 		double iv,pc,pv;
-		String np,bt;
+		//String np;
+		String np, bt;
 		Boolean t;
 		
 		Productos pd;
@@ -69,12 +71,14 @@ public class ServletProductos extends HttpServlet {
 		
 		bt=request.getParameter("boton");
 		
+		if(bt==null) {
+			bt="non";
+		}
 		
+		//1 carga de archivo
 		
 		if (request.getParameter("cargar")!=null) {
-			
-			JOptionPane.showMessageDialog(null, "en el if de carga");
-			
+						
 			Part archivocsv= request.getPart("archivo");
 			String url="C:\\git\\ProyectoG32S2\\Tienda_Generica_G32S2\\src\\main\\webapp\\documents\\";
 			String url2="C:\\\\git\\\\ProyectoG32S2\\\\Tienda_Generica_G32S2\\\\src\\\\main\\\\webapp\\\\documents\\\\";
@@ -95,13 +99,17 @@ public class ServletProductos extends HttpServlet {
 			ProductosCRUD prodc=new ProductosCRUD();
 			prodc.cargarproductos(url2+"csv01.csv");
 			
-			pw.println("Finalizado");
+				
+			response.sendRedirect("productos.jsp");
 				
 				
 		}
 		
-		if(request.getParameter("btnupdate")!=null) {
+		//2 actualizacion modificacion
+		
+		if(bt.equals("btnupdate")) {
 			try {
+				
 				cp=Float.parseFloat(request.getParameter("cp"));
 				iv=Double.parseDouble(request.getParameter("iv"));
 				ni=Float.parseFloat(request.getParameter("ni"));
@@ -127,10 +135,12 @@ public class ServletProductos extends HttpServlet {
 				}
 				response.sendRedirect("productos.jsp");
 			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, "Ingrese un código válida, por favor");
+				JOptionPane.showMessageDialog(null, "Ingrese un código válido, por favor");
 				response.sendRedirect("productos.jsp");
 			}	
 		}
+		
+		//3 busqueda consulta
 		
 		if (bt.equals("btnsearch")) {
 			
@@ -142,6 +152,8 @@ public class ServletProductos extends HttpServlet {
 			pw.println(gs.toJson(pd));
 			
 		}
+		
+		//4 listado
 		
 		if (bt.equals("btnlist")) {
 			

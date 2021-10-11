@@ -42,12 +42,25 @@ public class VentasCRUD {
 		return dat;
 	}
 	
-	
-	public Ventas buscarDatosVenatas(Ventas ve) {
+	public Ventas listarVentas(Ventas ve) {
 		
 		try {
-			ps = cn.prepareStatement("Select * from ventas where codigo_venta = ?");
-			ps.setInt(1, ve.getCodigo_venta());
+			ps = cn.prepareStatement("select * FROM ventas");
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				ven = new Ventas(rs.getInt(1), rs.getFloat(2), rs.getFloat(3), rs.getDouble(4), rs.getDouble(5), rs.getDouble(6));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ven;
+	}
+	
+	public Ventas buscarUltRegVentas(Ventas ve) {
+		
+		try {
+			ps = cn.prepareStatement("select MAX(codigo_venta), cedula_cliente, cedula_usuario, ivaventa, total_venta, valor_venta As id FROM ventas");
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {

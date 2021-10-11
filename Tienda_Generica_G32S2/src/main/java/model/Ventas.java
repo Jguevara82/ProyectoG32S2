@@ -11,7 +11,6 @@ public class Ventas {
 	
 	public Ventas(int codigo_venta, Float cedula_cliente, Float cedula_usuario, double ivaventa, double total_venta,
 			double valor_venta) {
-		super();
 		this.codigo_venta = codigo_venta;
 		this.cedula_cliente = cedula_cliente;
 		this.cedula_usuario = cedula_usuario;
@@ -20,11 +19,12 @@ public class Ventas {
 		this.valor_venta = valor_venta;
 	}
 	
+	public Ventas(int codigo_venta) {
+		this.codigo_venta = codigo_venta;
+	}
 	
 	public Ventas() {
-		super();
 	}
-
 
 	public int getCodigo_venta() {
 		return codigo_venta;

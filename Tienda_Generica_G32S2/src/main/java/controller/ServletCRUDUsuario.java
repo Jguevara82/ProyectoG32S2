@@ -64,8 +64,7 @@ public class ServletCRUDUsuario extends HttpServlet {
 		//1
 		if (bt.equals("btninsert")) {
 			
-			JOptionPane.showMessageDialog(null, "insert sedrvlet");
-			
+						
 			try{
 				cu=Float.parseFloat(request.getParameter("cu"));
 				eu=request.getParameter("eu");

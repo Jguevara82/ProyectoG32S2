@@ -13,7 +13,6 @@ public class DetalleVentas {
 	
 	public DetalleVentas(int codigo_detalle_venta, int cantidad_producto, int codigo_producto, int codigo_venta,
 			double valor_total, double valor_venta, double valoriva) {
-		super();
 		this.codigo_detalle_venta = codigo_detalle_venta;
 		this.cantidad_producto = cantidad_producto;
 		this.codigo_producto = codigo_producto;
@@ -23,13 +22,12 @@ public class DetalleVentas {
 		this.valoriva = valoriva;
 	}
 	
-	
-	
-	public DetalleVentas() {
-		super();
+	public DetalleVentas(int codigo_venta) {
+		this.codigo_venta = codigo_venta;
 	}
 
-
+	public DetalleVentas() {
+	}
 
 	public int getCodigo_detalle_venta() {
 		return codigo_detalle_venta;

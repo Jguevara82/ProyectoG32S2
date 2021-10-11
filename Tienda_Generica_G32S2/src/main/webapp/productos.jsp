@@ -54,33 +54,34 @@
     <main>
     
     	<fieldset class="cont-formcsv" style="width: 35%">
-			<form class="upload" id="cargar" action="" method="post" enctype="multipart/form-data">
-				<input type="file" name="archivo" value="Examinar">
-				<input type="submit" name="cargar" value="Cargar Archivo" id="cargar">
+			<%-- --%>
+			<form class="upload" action="ServletProductos" method="post" enctype="multipart/form-data" id="uploadCsv">
+				<input type="file" name="archivo" value="Examinar" id="archivoCsv">
+				<input type="submit" name="cargar" value="cargar" id="cargar">
 			</form>
 			<div id="mensaje"></div>
 		</fieldset>
 		
-		<fieldset class="cont-formproductos" style="width: 25%">
-			<form action="ServletProductos" method="post">
+		<fieldset class="cont-formactualizar" style="width: 25%">
+			<form action="" method="post">
 				<label>Codigo Del Producto</label>
-				<input type="text" name="cp">
+				<input type="text" name="cp" id="cpa">
 				<label>Iva</label>
-				<input type="text" name="iv">
+				<input type="text" name="iv" id="iva">
 				<label>Nit Del Proveedor</label>
-				<input type="text" name="ni">
+				<input type="text" name="ni" id="nia">
 				<label>Nombre Del Producto</label>
-				<input type="text" name="np">
+				<input type="text" name="np" id="npa">
 				<label>Precio De Compra</label>
-				<input type="text" name="pc">
+				<input type="text" name="pc" id="pca">
 				<label>Precio De Venta</label>
-				<input type="text" name="pv">
-				<input type="submit" name="btnupdate" value="Actualizar" class="btn-formularios">	
+				<input type="text" name="pv" id="pva">
+				<input type="button" name="btnupdate" value="Actualizar" class="btn-formularios" id="btnupdate">	
 			</form>
 		</fieldset>
 		
-		<fieldset class="cont-formactualizar" style="width: 25%">
-			<form action="ServletProductos" method="post">
+		<fieldset class="cont-formproductos" style="width: 25%">
+			<form action="" method="post">
 				<label>Codigo Del Producto</label>
 				<input type="text" name="cp" value="<%=cp%>" id="cp">
 				<input type="button" name="btnsearch" value="Buscar" class="btn-formularios" id="psearch">	

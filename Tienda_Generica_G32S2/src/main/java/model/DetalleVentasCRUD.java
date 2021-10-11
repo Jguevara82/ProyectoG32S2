@@ -46,12 +46,29 @@ public class DetalleVentasCRUD {
 		return dat;
 	}
 	
-	public DetalleVentas buscarInfDetalleVentas (DetalleVentas dv) {
+	public DetalleVentas listarDetalleVentas (DetalleVentas dv) {
 		
 		
 		try {
-		ps = cn.prepareStatement("select * from detalle_ventas where codigo_detalle_venta = ?");
-		ps.setInt(1, dv.getCodigo_detalle_venta());
+		ps = cn.prepareStatement("select * from detalle_ventas");
+		rs = ps.executeQuery();
+		
+		while (rs.next()) {
+			detVen = new DetalleVentas(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDouble(5), rs.getDouble(6), rs.getDouble(7));
+		}
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		
+		return detVen;
+	}
+
+	public DetalleVentas buscarUltRegDetalleVentas (DetalleVentas dv) {
+		
+		
+		try {
+		ps = cn.prepareStatement("select MAX(codigo_detalle_venta), cantidad_producto, codigo_producto, codigo_venta, valor_total, valor_venta, valoriva As id FROM detalle_ventas");
 		rs = ps.executeQuery();
 		
 		while (rs.next()) {

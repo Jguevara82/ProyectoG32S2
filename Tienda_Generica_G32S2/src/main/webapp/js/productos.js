@@ -3,12 +3,50 @@
  */
 $(document).ready(function(){
 
-//consultar
+//1 carga de archivo csv
+/*$("#cargar").on('click', function(){
+		
+	$('#uploadCsv').ajaxForm({
+            success: function(result) {
+                console.log(result);
+            },
+            error: function(result) {
+                console.log(result);
+            }
+	});
 
-$('#psearch').on('click', function(e){
+});	*/	
+
 	
-	e.preventDefault();
+
+//2 actualizacion modificacion	
 	
+$("#btnupdate").on('click', function(){
+	
+	var cp=document.getElementById("cpa").value;
+	var iv=document.getElementById("iva").value;
+	var ni=document.getElementById("nia").value;
+	var np=document.getElementById("npa").value;
+	var pc=document.getElementById("pca").value;
+	var pv=document.getElementById("pva").value;
+		
+	$.ajax({
+		type:"post",
+		url:"ServletProductos",
+		dataType:"json",
+		data:{boton: "btnupdate", cp : cp, iv : iv, ni : ni, np : np, pc : pc, pv : pv},
+		success: function(result){
+			console.log("success");
+			console.log(result);
+		}
+	});
+
+});
+	
+//3 busqueda consulta
+
+$('#psearch').on('click', function(){
+		
 	var cp=document.getElementById("cp").value;
 	
 	$.ajax({
@@ -40,41 +78,26 @@ $('#psearch').on('click', function(e){
 	
 });
 		
-});
+});	
 	
-//Cargar archivo	
 	
-$("form.upload").on('submit', function(e){
+//4 listado	
 	
-	e.preventDefault();
 	
-	alert("en la funcion de carga");
-	
-	var formData=new FormData (document.getElementById("cargar"));
-	
+$("#btnlist").on('click', function(){
+		
 	$.ajax({
 		type:"post",
 		url:"ServletProductos",
-		dataType:"html",
-		data:formData,
-		cache: false,
-		contentType: false,
-		processData: false
-	}).done(function(res){
-		$("#mensaje").html("Respuesta: "+res);
-});
+		dataType:"json",
+		data:{boton: "btnlist"},
+		success: function(result){
+			console.log("success");
+			console.log(result);
+		}
+	});
 
-});
-
-
-	
-	
-	
-	
-	
-	
-	
-	
+});		
 	
 	
 	
