@@ -140,4 +140,25 @@ $.ajax({
 
 });
 
+
+//listar ventas
+
+$('#listv').on('click', function(){
+	$.ajax({
+		type: "post",
+		url: "ServletVentas",
+		dataType: "json",
+		data:{boton:"listVen"},
+		success:function(result){
+			console.log("success");
+			console.log(result);
+			let datos=document.querySelector('#datosv');
+			datos.innerHTML='';
+			for(let i of result){
+				datos.innerHTML+=`<tr><td>${i.cedula_cliente}</td><td></td><td>${i.total_venta}</td></tr>`;
+			}
+		}
+	});
+});
+
 });

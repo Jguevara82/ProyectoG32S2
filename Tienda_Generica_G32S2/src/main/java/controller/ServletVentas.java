@@ -57,7 +57,6 @@ public class ServletVentas extends HttpServlet {
 		PrintWriter pw=response.getWriter();
 		
 		Integer cv,    cdv, cp, cdp;
-		Integer conCV, conDCV;
 		Float cu, cc;
 		Double iv, tv, vv,   ptv, pvv, piv;
 		String bt;
@@ -115,8 +114,7 @@ public class ServletVentas extends HttpServlet {
 		if (bt.equals("btninsertdv")) {
 			
 			try{
-				JOptionPane.showMessageDialog(null, "cv"+"cu"+"cc"+"iv"+"tv"+"vv"+"iv");
-				
+								
 				cdv=Integer.parseInt(request.getParameter("cdv"));
 				cp=Integer.parseInt(request.getParameter("cp"));
 				cdp=Integer.parseInt(request.getParameter("cdp"));
@@ -169,6 +167,16 @@ public class ServletVentas extends HttpServlet {
 			codDV.setAttribute("codDVen", dvn);
 			
 			pw.println(gs.toJson(dvn));
+			
+		}
+		
+		if(bt.equals("listVen")) {
+			
+			ve=new Ventas();
+			vc=new VentasCRUD();
+			ven=vc.listarVentas(ve);
+			
+			pw.println(gs.toJson(ven));
 			
 		}
 	}

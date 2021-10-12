@@ -66,7 +66,18 @@
 		<form action="">
 			<input type="button" name="btnlist" value="Ventas por Cliente" class="btn-formularios" id="listv">
 		</form>
-		<table id="tablav"></table>	
+		<table id="tablav">
+			<caption>Total de ventas por cliente</caption>
+			<thead>
+				<tr id="encabezados">
+					<th>Cedula</th>
+					<th>Nombre</th>
+					<th>Valor total ventas</th>
+				</tr>
+			</thead>
+			<tbody id="datosv">
+			</tbody>
+		</table>
 	</main>
 </body>
 </html>

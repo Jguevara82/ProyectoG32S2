@@ -34,8 +34,8 @@
 		    iptotal = (iptotal == null || iptotal == undefined || iptotal == "") ? 0 : iptotal;
 			
 		    /* operacion */
-		    ptotal = (parseInt(precio) * parseInt(cant));
-		    iptotal = (parseInt(iva) * parseInt(cant));
+		    ptotal = parseInt(precio) * parseInt(cant);
+		    iptotal = parseInt(iva) * parseInt(ptotal);
 		    // resultado
 		    document.getElementById('vTotalProduct-'+item).innerHTML = ptotal;
 			document.getElementById('ivaTotalProduct-'+item).innerHTML = iptotal;

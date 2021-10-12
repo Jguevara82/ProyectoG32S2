@@ -27,14 +27,6 @@ $('#psearch').on('click', function(){
 			console.log("success");
 			console.log(result);
 			if (result!=null){
-				/*var dato1=document.querySelector('#codProduct-'+a);
-				dato1.setAttribute('value',result.codigo_producto);
-				let dato2=document.querySelector('#nameProduct-'+a);
-				dato2.setAttribute('value',result.nombre_producto);
-				let dato3=document.querySelector('#valProduct-'+a);
-				dato3.setAttribute('value',result.precio_venta);
-				let dato4=document.querySelector('#ivaProduct-'+a);
-				dato4.setAttribute('value',result.ivacompra);*/
 				var dato=document.createElement('div');
 				dato.setAttribute('class','dRow');
 				dato.setAttribute('id','product-'+a+'');
@@ -87,12 +79,11 @@ $('#psearch').on('click', function(){
 
 //borrar campo producto
 	
-$('#delPro').on('click', function(e){
+$('#delPro').on('click', function(){
 	
-	e.preventDefault();
-	/*document.appendChild(document.removeChild());*/	
+	
 	if (a!=0){
-	    	$('#product-'+a+'').remove();
+	    	$('#product-'+a+'').empty();
 			a--;
 	    }
 });
@@ -139,14 +130,8 @@ function conCodigos(){
 	success: function(result){
 		console.log("success");
 		console.log(result);
-		if (result.codigo_venta!=0){
-			let dato=document.querySelector('#conCodV');
-			dato.setAttribute('value',result.codigo_venta);
-			
-		}else{
-			let dato=document.querySelector('#conCodV');
-			dato.setAttribute('value',1);
-		}
+		let dato=document.querySelector('#conCodV');
+		dato.setAttribute('value',result.codigo_venta+1);
 		
 		console.log("success");
 	}
@@ -161,14 +146,8 @@ function conCodigos(){
 	success: function(result){
 		console.log("success");
 		console.log(result);
-		if (result.codigo_detalle_venta!=0){
-			let dato=document.querySelector('#conCodDV');
-			dato.setAttribute('value',result.codigo_detalle_venta);
-			
-		}else{
-			let dato=document.querySelector('#conCodDV');
-			dato.setAttribute('value',1);
-		}
+		let dato=document.querySelector('#conCodDV');
+		dato.setAttribute('value',result.codigo_detalle_venta+1);
 		
 		console.log("success");
 	}
@@ -186,19 +165,12 @@ $('#enviarVenta').on('click', function(){
 	}else{
 		//variables tabla ventas	
 		var cv=document.getElementById("conCodV").value;
-		//var cv=0
-		if (cv!=1){
-			cv++;
-		}		
 		var cu=document.getElementById("cedusu").innerHTML;
 		var iv=document.getElementById("itotal").innerHTML;
 		var tv=document.getElementById("total").innerHTML;
 		var vv=document.getElementById("stotal").innerHTML;
 		//variables tabla detalle ventas
-		var cdv1=(document.getElementById("conCodDV").innerHTML);
-		if (cdv1!=1){
-			cdv1++;
-		}
+		var cdv1=document.getElementById("conCodDV").innerHTML;
 		var cp1=document.getElementById("cantProduct-1").value;
 		var cdp1=document.getElementById("codProduct-1").innerHTML;
 		var ptv1=document.getElementById("vTotalProduct-1").innerHTML;
@@ -210,17 +182,17 @@ $('#enviarVenta').on('click', function(){
 		var ptv2=document.getElementById("vTotalProduct-2").innerHTML;
 		var pvv2=document.getElementById("valProduct-2").innerHTML;
 		var piv2=document.getElementById("ivaTotalProduct-2").innerHTML;
-		var cdv3=cdv2+1;
+		var cdv3=cdv1+2;
 		var cp3=document.getElementById("cantProduct-3").value;
 		var cdp3=document.getElementById("codProduct-3").innerHTML;
 		var ptv3=document.getElementById("vTotalProduct-3").innerHTML;
 		var pvv3=document.getElementById("valProduct-3").innerHTML;
 		var piv3=document.getElementById("ivaTotalProduct-3").innerHTML;
 		
-		alert("Codigo venta "+cv+" Codigo detalle venta "+cdv1+" Cedula usuario "+cu+" Cedula cliente "+cc+"\n"+"Total iva "+iv+" Valor venta "+vv+" Total venta"+tv+"\n"
-		+"Producto 1"+cdp1+" Cantidad de producto "+cp1+" Iva producto "+piv1+" Valor producto "+pvv1+" Total Producto "+ptv1+"\n"
-		+"Producto 2"+cdp2+" Cantidad de producto "+cp2+" Iva producto "+piv2+" Valor producto "+pvv2+" Total Producto "+ptv2+"\n"
-		+"Producto 3"+cdp3+" Cantidad de producto "+cp3+" Iva producto "+piv3+" Valor producto "+pvv3+" Total Producto "+ptv3);
+		alert("Codigo venta: "+cv+"- Codigo detalle venta: "+cdv1+"- Cedula usuario: "+cu+"- Cedula cliente: "+cc+"\n"+"Total iva: "+iv+"- Valor venta: "+vv+"- Total venta: "+tv+"\n"
+		+"Producto: 1"+cdp1+"- Cantidad de producto: "+cp1+"- Iva producto: "+piv1+"- Valor: producto: "+pvv1+" Total Producto: "+ptv1+"\n"
+		+"Producto: 2"+cdp2+"- Cantidad de producto: "+cp2+"- Iva producto: "+piv2+"- Valor: producto: "+pvv2+" Total Producto: "+ptv2+"\n"
+		+"Producto: 3"+cdp3+"- Cantidad de producto: "+cp3+"- Iva producto: "+piv3+"- Valor: producto: "+pvv3+" Total Producto: "+ptv3);
 		
 		$.ajax({
 		type:"post",
@@ -234,8 +206,6 @@ $('#enviarVenta').on('click', function(){
 		
 		});
 		
-		alert("Codigo detalle venta "+cdv1+"- Cantidad de producto "+cp1+"- Codigo de producto "+cdp1+"- Codigo venta "+cv+"- Precio producto  "+ptv1+"- Valor venta "+pvv1+" Valor iva "+piv1);
-		
 		$.ajax({
 		type:"post",
 		url:"ServletVentas",
@@ -247,8 +217,6 @@ $('#enviarVenta').on('click', function(){
 		}
 		
 		});
-		
-		alert("Codigo detalle venta "+cdv2+"- Cantidad de producto "+cp2+"- Codigo de producto "+cdp2+"- Codigo venta "+cv+"- Precio producto  "+ptv2+"- Valor venta "+pvv2+" Valor iva "+piv2);
 		
 		$.ajax({
 		type:"post",
@@ -282,7 +250,6 @@ $('#enviarVenta').on('click', function(){
 
 listCodProductos()
 conCodigos()
-
 
 
 });
