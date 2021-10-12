@@ -1,12 +1,16 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
+
+import com.google.gson.Gson;
 
 import model.Proveedores;
 import model.ProveedoresCRUD;
@@ -40,15 +44,22 @@ public class ServletCRUDProveedores extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter pw=response.getWriter();
+		
 		Float nitp;
-		String cp,dp, np, tp;
+		String cp,dp, np, tp, bt;
 		Boolean t;
 		
 		Proveedores pro;
 		Proveedores pr;
 		ProveedoresCRUD prc;
 		
-		if (request.getParameter("btninsert")!=null) {
+		Gson gs=new Gson();
+		
+		bt=request.getParameter("boton");
+		
+		if (bt.equals("btninsert")) {
 			try {
 				nitp=Float.parseFloat(request.getParameter("nitp"));
 				cp=request.getParameter("cp");
@@ -57,60 +68,52 @@ public class ServletCRUDProveedores extends HttpServlet {
 				tp=request.getParameter("tp");
 				
 				pr=new Proveedores(nitp, cp, dp, np, tp);
-				
 				prc=new ProveedoresCRUD();
 				
 				t=prc.insertardatosproveedor(pr);
-				
+
 				if(t) {
 					
-					JOptionPane.showMessageDialog(null, "El proveedor fue registrado");
-					response.sendRedirect("proveedores.jsp");
+					pw.println(gs.toJson(t));
 					
 				}
 				
 				else {
 					
-					JOptionPane.showMessageDialog(null, "El proveedor no fue registrado");
-					response.sendRedirect("proveedores.jsp");
+					pw.println(gs.toJson(t));
 					
 				}
 			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, "Ingrese un NIT válido, por favor");
-				response.sendRedirect("proveedores.jsp");
+				pw.println(gs.toJson(null));
 			}
 		}
 		
-		if (request.getParameter("btndelete")!=null) {
+		if (bt.equals("btndelete")) {
 			try {
 				nitp=Float.parseFloat(request.getParameter("nitp"));
 				
 				pr=new Proveedores(nitp);
-				
 				prc=new ProveedoresCRUD();
 				
 				t=prc.eliminardatosproveedor(pr);
 				
 				if(t) {
 					
-					JOptionPane.showMessageDialog(null, "El proveedor fue eliminado");
-					response.sendRedirect("proveedores.jsp");
+					pw.println(gs.toJson(t));
 					
 				}
 				
 				else {
 					
-					JOptionPane.showMessageDialog(null, "El proveedor no fue encontrado");
-					response.sendRedirect("proveedores.jsp");
+					pw.println(gs.toJson(t));
 					
 				}
 			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, "Ingrese un NIT válido, por favor");
-				response.sendRedirect("proveedores.jsp");
+				pw.println(gs.toJson(null));
 			}
 		}
 		
-		if (request.getParameter("btnupdate")!=null) {
+		if (bt.equals("btnupdate")) {
 			try {
 				nitp=Float.parseFloat(request.getParameter("nitp"));
 				cp=request.getParameter("cp");
@@ -119,63 +122,39 @@ public class ServletCRUDProveedores extends HttpServlet {
 				tp=request.getParameter("tp");
 				
 				pr=new Proveedores(nitp,cp,dp,np,tp);
-				
 				prc=new ProveedoresCRUD();
 				
 				t=prc.modificardatosproveedor(pr);
 				
+				JOptionPane.showMessageDialog(null, t);
+				
 				if(t) {
 					
-					JOptionPane.showMessageDialog(null, "El proveedor fue actualizado");
-					response.sendRedirect("proveedores.jsp");
+					pw.println(gs.toJson(t));
 					
 				}
 				
 				else {
 					
-					JOptionPane.showMessageDialog(null, "El proveedor no fue encontrado");
-					response.sendRedirect("proveedores.jsp");
+					pw.println(gs.toJson(t));
 					
 				}
 			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, "Ingrese un NIT válido, por favor");
-				response.sendRedirect("proveedores.jsp");
+				pw.println(gs.toJson(null));
 			}
 		}
 		
-		if (request.getParameter("btnsearch")!=null) {
-			try {
-				nitp=Float.parseFloat(request.getParameter("nitp"));
+		if (bt.equals("btnsearch")) {
+			
+			nitp=Float.parseFloat(request.getParameter("nitp"));
 				
-				pr=new Proveedores(nitp);
+			pr=new Proveedores(nitp);
+			prc=new ProveedoresCRUD();
+			
+			pro=prc.buscardatosproveedor(pr);
+			
+			pw.println(gs.toJson(pro));
 				
-				prc=new ProveedoresCRUD();
-				
-				pro=prc.buscardatosproveedor(pr);
-				
-				nitp=pro.getNitproveedor();
-				cp=pro.getCiudad_proveedor();
-				dp=pro.getDireccion_proveedor();
-				np=pro.getNombre_proveedor();
-				tp=pro.getTelefono_proveedor();
-				
-				if(nitp!=null) {
-					
-					JOptionPane.showMessageDialog(null, "El proveedor fue encontrado");
-					response.sendRedirect("proveedores.jsp?nitp="+nitp+"&&cp="+cp+"&&dp="+dp+"&&np="+np+"&&tp="+tp);
-					
-				}
-				
-				else {
-					
-					JOptionPane.showMessageDialog(null, "El proveedor no fue encontrado");
-					response.sendRedirect("proveedores.jsp");
-					
-				}
-			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, "Ingrese un NIT válido, por favor");
-				response.sendRedirect("proveedores.jsp");
-			}
 		}
 	}
 

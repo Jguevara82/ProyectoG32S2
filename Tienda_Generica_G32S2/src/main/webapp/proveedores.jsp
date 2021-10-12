@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/jproveedores.js"></script>
     <title>Proveedores</title>
     <link rel="stylesheet" href="css/formulariosUCP.css">
 </head>
@@ -58,18 +60,18 @@
                 <label id="crear" for="tab-1">CREAR</label>
             <div class="content crear">
 	    	<fieldset class="containers">
-			    <form action="ServletCRUDProveedores" method="post">
+			    <form action="" method="post">
 					<label>Nit proveedor</label>
-					<input type="text" name="nitp">
+					<input type="text" name="nitp" id="nitp">
 					<label>Ciudad proveedor</label>
-					<input type="text" name="cp">
+					<input type="text" name="cp" id="cp">
 					<label>Direccion proveedor</label>
-					<input type="text" name="dp">
+					<input type="text" name="dp" id="dp">
 					<label>Nombre proveedor</label>
-					<input type="text" name="np">
+					<input type="text" name="np" id="np">
 					<label>Telefono proveedor</label>
-					<input type="text" name="tp">
-					<input type="submit" name="btninsert" value="CREAR" class="btn-formularios">	
+					<input type="text" name="tp" id="tp">
+					<input type="button" name="btninsert" value="Crear" class="btn-formularios" id="btinsert">	
 				</form>
 			</fieldset>
             </div>
@@ -79,11 +81,11 @@
                 <label id="eliminar" for="tab-2">ELIMINAR</label>
             <div class="content eliminar">
 			<fieldset class="containers">
-			    <form action="ServletCRUDProveedores" method="post">
+				<form action="" method="post">
 					<label>Nit proveedor</label>
-					<input type="text" name="nitp">
-					<input type="submit" name="btndelete" value="ELIMINAR" class="btn-formularios">	
-		</form>
+					<input type="text" name="nitp" id="nitpe">
+					<input type="button" name="btndelete" value="Eliminar" class="btn-formularios" id="btdelete">	
+				</form>
 			</fieldset>
             </div>
         </div>
@@ -92,18 +94,18 @@
                 <label for="tab-3" id="actualizar">ACTUALIZAR</label>
             <div class="content actualizar">
 			<fieldset class="containers">
-			    <form action="ServletCRUDProveedores" method="post">
+			   <form action="" method="post">
 					<label>Nit proveedor</label>
-					<input type="text" name="nitp">
+					<input type="text" name="nitpu" id="nitpu">
 					<label>Ciudad proveedor</label>
-					<input type="text" name="cp">
+					<input type="text" name="cpu" id="cpu">
 					<label>Direccion proveedor</label>
-					<input type="text" name="dp">
+					<input type="text" name="dpu" id="dpu">
 					<label>Nombre proveedor</label>
-					<input type="text" name="np">
+					<input type="text" name="npu" id="npu">
 					<label>Telefono proveedor</label>
-					<input type="text" name="tp">
-					<input type="submit" name="btnupdate" value="ACTUALIZAR" class="btn-formularios">	
+					<input type="text" name="tpu" id="tpu">
+					<input type="button" name="btnupdate" value="Actualizar" class="btn-formularios" id="btupdate">	
 				</form>
 			</fieldset>
             </div>
@@ -113,19 +115,13 @@
                 <label for="tab-4" id="buscar">BUSCAR</label>
             <div class="content buscar">
 			<fieldset class="containers">
-			    <form action="ServletCRUDProveedores" method="post">
+			   <form action="" method="post">
 					<label>Nit proveedor</label>
-					<input type="text" name="nitp" value="<%=nitp%>">
-					<input type="submit" name="btnsearch" value="Buscar" class="btn-formularios">
-					<label>Ciudad proveedor</label>
-					<input type="text" name="cp" value="<%=cp%>">
-					<label>Direccion proveedor</label>
-					<input type="text" name="dp" value="<%=dp%>">
-					<label>Nombre proveedor</label>
-					<input type="text" name="np" value="<%=np%>">
-					<label>Telefono proveedor</label>
-					<input type="text" name="tp" value="<%=tp%>">
+					<input type="text" name="nitp" value="${result.nombre_proveedor}" id="nitps" >
+					<input type="button" name="btnsearch" value="Buscar" class="btn-formularios" id="btsearch">	
 				</form>
+			    <form id="datos">
+			    </form>
 			</fieldset>
             </div>
         </div>
