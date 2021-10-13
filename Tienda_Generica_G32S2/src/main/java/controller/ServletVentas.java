@@ -84,30 +84,26 @@ public class ServletVentas extends HttpServlet {
 				iv=Double.parseDouble(request.getParameter("iv"));
 				tv=Double.parseDouble(request.getParameter("tv"));
 				vv=Double.parseDouble(request.getParameter("vv"));
-							
-				ve=new Ventas(cv, cu, cc, iv, tv, vv);
+								
+				ve=new Ventas(cv, cc, cu, iv, tv, vv);
 				vc=new VentasCRUD();
 				
 				t=vc.insertarDatosVentas(ve);
 				
-				
-				
-				
 				if(t) {
 					
-					JOptionPane.showMessageDialog(null, "La venta fue registrada");
+					pw.println(gs.toJson(t));
 					
 				}
 				
 				else {
 					
-					JOptionPane.showMessageDialog(null, "La venta no fue registrada");
+					pw.println(gs.toJson(t));
 					
 				}
-				response.sendRedirect("ventas.jsp");
 			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, "Registre valores validos");
-				response.sendRedirect("ventas.jsp");
+				
+				pw.println(gs.toJson(null));
 			}
 		}
 		
@@ -122,7 +118,7 @@ public class ServletVentas extends HttpServlet {
 				ptv=Double.parseDouble(request.getParameter("ptv"));
 				pvv=Double.parseDouble(request.getParameter("pvv"));
 				piv=Double.parseDouble(request.getParameter("piv"));
-							
+				
 				dv=new DetalleVentas(cdv, cp, cdp, cv, ptv, pvv, piv);
 				dvc=new DetalleVentasCRUD();
 				
@@ -130,19 +126,18 @@ public class ServletVentas extends HttpServlet {
 				
 				if(td) {
 					
-					JOptionPane.showMessageDialog(null, "El detalle de venta fue registrado");
+					pw.println(gs.toJson(td));
 					
 				}
 				
 				else {
 					
-					JOptionPane.showMessageDialog(null, "El detalle de venta no fue registrado");
+					pw.println(gs.toJson(td));
 					
 				}
-				response.sendRedirect("ventas.jsp");
 			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, "Registre valores validos");
-				response.sendRedirect("ventas.jsp");
+				
+				pw.println(gs.toJson(null));
 			}
 		}
 		

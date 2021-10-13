@@ -22,12 +22,14 @@
 		    cant = parseInt(cant); // formatear valor de entrada
 		    item = parseInt(item);
 		    //captura de variables
+			pcompra = document.getElementById('compProduct-'+item).innerHTML;
 			precio = document.getElementById('valProduct-'+item).innerHTML;//value
 		    ptotal = document.getElementById('vTotalProduct-'+item).innerHTML;
 			iva = document.getElementById('ivaProduct-'+item).innerHTML;//value
 			iptotal = document.getElementById('ivaTotalProduct-'+item).innerHTML;//value
 			
 		    // validacion "0".
+		    pcompra = (pcompra == null || pcompra == undefined || pcompra == "") ? 0 : pcompra;
 		    precio = (precio == null || precio == undefined || precio == "") ? 0 : precio;
 		    ptotal = (ptotal == null || ptotal == undefined || ptotal == "") ? 0 : ptotal;
 		    iva = (iva == null || iva == undefined || iva == "") ? 0 : iva;
@@ -35,7 +37,7 @@
 			
 		    /* operacion */
 		    ptotal = parseInt(precio) * parseInt(cant);
-		    iptotal = parseInt(iva) * parseInt(ptotal);
+		    iptotal = parseInt((pcompra * iva) / 100) * parseInt(cant);
 		    // resultado
 		    document.getElementById('vTotalProduct-'+item).innerHTML = ptotal;
 			document.getElementById('ivaTotalProduct-'+item).innerHTML = iptotal;
@@ -87,6 +89,7 @@
 	<% 
 	HttpSession hs=request.getSession();
 	String cedula_usuario=(String)hs.getAttribute("cedUsu");
+	
 		
 	%>
 	<header class="cont-header" id="cont-header">
@@ -110,7 +113,7 @@
            	<form action="" id="formBuscarCli">
            		<fieldset>
 		            <div class="dTable" id="cliente">
-		            	<div class="dRow">
+		            	<div class="dRow" id="datosUsuCli">
 		            		<div class="dCell"><label>Cedula cliente</label></div>
 		            		<div class="dCell"><input class="" name="ccBuscar" id="ccBuscar" type="text"></div>	
 		            		<div class="dCell"><input type="submit" name="btnsearch" value="Buscar" class="btn-formularios" id="btnsearchcli"></div>
@@ -125,11 +128,8 @@
 		            		<div class="dCell"></div>
 		            		<div class="dCell"><h1>No.</h1></div>
 		            		<div class="dCell"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"><input id="conCodV"></div>
-		            		<div class="dCell"><input style="display: none" id="conCodDV"></div>
+		            		<div class="dCell"></div><%-- style="display: none" --%>
 							<div class="dCell"><label style="display: none" id="cedusu"><%=cedula_usuario %></label></div>
-		            		<div class="dCell"><label style="display: none">${objUsu.getCedula_usuario()}</label></div>
 		            		<div class="dCell" id="cedCliC"><label id="cedCli"></label></div>
 		            	</div>
 		            	<div class="dRow">
@@ -250,6 +250,7 @@
 				<fieldset>
 					<div class="dTable" id="enviar">
 		            	<div class="dRow">
+							<div class="dCell"><input type="button" id="confirmarVenta" value="Confirmar"></div>
 							<div class="dCell"><input type="button" id="enviarVenta" value="Enviar"></div>
 						</div>
 					</div>	

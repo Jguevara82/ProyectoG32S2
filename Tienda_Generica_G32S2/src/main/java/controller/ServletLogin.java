@@ -47,7 +47,8 @@ public class ServletLogin extends HttpServlet {
 				us = new Usuarios(clave, usuario);
 				uc = new UsuarioCRUD();
 				usu = uc.buscarUsuLogin(us);
-				cedula_usuario=Float.toString(usu.getCedula_usuario());
+				cedula_usuario=String.format("%.0f", usu.getCedula_usuario());
+				//cedula_usuario=Float.toString(usu.getCedula_usuario());
 				
 				cedUsu.setAttribute("cedUsu", cedula_usuario);
 				cedUsu.setAttribute("objUsu", usu);

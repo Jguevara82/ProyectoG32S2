@@ -38,6 +38,7 @@ $("#btnupdate").on('click', function(){
 		success: function(result){
 			console.log("success");
 			console.log(result);
+			location.reload();
 		}
 	});
 
@@ -94,6 +95,7 @@ $("#btnlist").on('click', function(){
 		success: function(result){
 			console.log("success");
 			console.log(result);
+			
 		}
 	});
 

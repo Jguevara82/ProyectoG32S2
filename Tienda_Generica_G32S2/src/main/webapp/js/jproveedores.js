@@ -22,8 +22,9 @@ $(document).ready(function(){
 				if(result!=null){
 					if(result){
 						alert("El proveedor fue registrado");
+					}else{
+						alert("El proveedor no fue registrado");
 					}
-					alert("El proveedor no fue registrado");
 				}else{
 					alert("Ingrese un documento valido");
 				}
@@ -52,8 +53,9 @@ $(document).ready(function(){
 				if(result!=null){
 					if(result){
 						alert("El proveedor fue eliminado");
+					}else{
+						alert("No se encontro un proveedor con ese documento");
 					}
-					alert("No se encontro un proveedor con ese documento");
 				}else{
 					alert("Ingrese una documento valido");
 				}
@@ -75,8 +77,9 @@ $(document).ready(function(){
 				if(result!=null){
 					if(result){
 						alert("El proveedor fue actualizado");
+					}else{
+						alert("El proveedor no fue actualizado");
 					}
-					alert("El proveedor no fue actualizado");
 				}else{
 					alert("Ingrese un documento valido");
 				}

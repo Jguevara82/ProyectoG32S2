@@ -16,7 +16,7 @@ public class ConnectionDB {
 			
 			try {
 				
-				cnx=DriverManager.getConnection("jdbc:mysql://localhost/bd_tiendagenerica","root","");
+				cnx=DriverManager.getConnection("jdbc:mysql://localhost/bd_G32_EQUIPO_2","root","");
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

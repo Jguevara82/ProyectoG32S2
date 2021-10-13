@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import controller.ConnectionDB;
 
 public class VentasCRUD {
@@ -20,7 +22,7 @@ public class VentasCRUD {
 		
 		int x;
 		Boolean dat=false;
-	
+		
 		try {
 			ps = cn.prepareStatement("insert into ventas values(?,?,?,?,?,?)");
 			
