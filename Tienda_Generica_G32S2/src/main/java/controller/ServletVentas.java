@@ -69,7 +69,9 @@ public class ServletVentas extends HttpServlet {
 		DetalleVentas dv;
 		DetalleVentas dvn;
 		DetalleVentasCRUD dvc;
-
+		
+		ArrayList<Ventas> listV=new ArrayList<>();
+		
 		Gson gs=new Gson();
 		
 		bt=request.getParameter("boton");
@@ -169,9 +171,9 @@ public class ServletVentas extends HttpServlet {
 			
 			ve=new Ventas();
 			vc=new VentasCRUD();
-			ven=vc.listarVentas(ve);
+			listV=vc.listarVentas(ve);
 			
-			pw.println(gs.toJson(ven));
+			pw.println(gs.toJson(listV));
 			
 		}
 	}

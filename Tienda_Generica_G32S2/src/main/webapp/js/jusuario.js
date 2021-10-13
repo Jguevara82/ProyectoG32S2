@@ -16,10 +16,12 @@ $.ajax({
 	success: function(result){
 		console.log("success");
 		console.log(result);
-		let datos=document.querySelector('#datos');
-		datos.innerHTML='';
 		for(let i of result){
-			datos.innerHTML+=`<tr><td>${i.cedula_usuario}</td><td>${i.email_usuario}</td><td>${i.nombre_usuario}</td><td>${i.password}</td><td>${i.usuario}</td></tr>`;
+			let datos=document.createElement('div');
+			datos.setAttribute('class','dRow');
+			datos.innerHTML='';
+			datos.innerHTML+=`<div class="dCell">${i.cedula_usuario}</div><div class="dCell">${i.email_usuario}</div><div class="dCell">${i.nombre_usuario}</div><div class="dCell">${i.password}</div><div class="dCell">${i.usuario}</div>`;
+			document.getElementById('datos').appendChild(datos);
 		}
 	}
 });
@@ -28,10 +30,9 @@ $.ajax({
 
 //lista cliente
 
-$('#listc').on('click',function(e){
+$('#listc').on('click',function(){
 	
-	e.preventDefault();
-	
+		
 $.ajax({
 	type:"post",
 	url:"ServletCRUDClientes",
@@ -40,17 +41,20 @@ $.ajax({
 	success: function(result){
 		console.log("success");
 		console.log(result);
-		let datos=document.querySelector('#datosc');
-		datos.innerHTML='';
 		for(let i of result){
-			datos.innerHTML+=`<tr><td>${i.cedula_cliente}</td><td>${i.direccion_cliente}</td><td>${i.email_cliente}</td><td>${i.nombre_cliente}</td><td>${i.telefono_cliente}</td></tr>`;
+			let datos=document.createElement('div');
+			datos.setAttribute('class','dRow');
+			datos.innerHTML='';
+			datos.innerHTML+=`<div class="dCell">${i.cedula_cliente}</div><div class="dCell">${i.direccion_cliente}</div><div class="dCell">${i.email_cliente}</div><div class="dCell">${i.nombre_cliente}</div><div class="dCell">${i.telefono_cliente}</div>`;
+			document.getElementById('datosc').appendChild(datos);
+			document.getElementById('datosc').appendChild(datos);
 		}
 	}
 });
 
 });
 
-//Crear
+//Crear usuario
 
 $('#btinsert').on('click',function(){
 	
@@ -74,7 +78,7 @@ $.ajax({
 
 });
 
-//Eliminar
+//Eliminar usuario
 
 $('#btdelete').on('click',function(){
 	
@@ -94,7 +98,7 @@ $.ajax({
 
 });
 
-//Actualizar
+//Actualizar usuario
 
 $('#btupdate').on('click',function(){
 	
@@ -118,7 +122,7 @@ $.ajax({
 
 });
 
-//Buscar
+//Buscar usuario
 
 $('#usearch').on('click',function(){
 	
@@ -144,6 +148,7 @@ $.ajax({
 //listar ventas
 
 $('#listv').on('click', function(){
+	
 	$.ajax({
 		type: "post",
 		url: "ServletVentas",
@@ -152,11 +157,23 @@ $('#listv').on('click', function(){
 		success:function(result){
 			console.log("success");
 			console.log(result);
-			let datos=document.querySelector('#datosv');
+			let datos=document.createElement('div');
+			datos.setAttribute('class','dRow');
 			datos.innerHTML='';
 			for(let i of result){
-				datos.innerHTML+=`<tr><td>${i.cedula_cliente}</td><td></td><td>${i.total_venta}</td></tr>`;
-			}
+				let datos=document.createElement('div');
+				datos.setAttribute('class','dRow');
+				datos.innerHTML='';
+				datos.innerHTML+=`<div class="dCell">${i.cedula_cliente}</div><div class="dCell"></div><div class="dCell">${i.total_venta}</div>`;
+				document.getElementById('datosv').appendChild(datos);
+				document.getElementById('datosv').appendChild(datos);
+				}
+			/*if(Object.keys(result).length==6){
+				datos.innerHTML+=`<tr><td>${result.cedula_cliente}</td><td></td><td>${result.total_venta}</td></tr>`;
+			}else{
+				
+			}*/
+			
 		}
 	});
 });

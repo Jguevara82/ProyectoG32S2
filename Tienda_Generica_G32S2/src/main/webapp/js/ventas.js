@@ -50,9 +50,9 @@ $('#psearch').on('click', function(){
 						<div class="dCell">
 			                <label class="" id="vTotalProduct-`+a+`" value=""></label>
 						</div>
-						<div class="dCell">
-			                <label class="" id="ivaProduct-`+a+`" value="" style="display: none">${result.ivacompra}</label>
-			                <label class="" id="ivaTotalProduct-`+a+`" value="" style="display: none">0</label>
+						<div class="dCell" style="display: none">
+			                <label class="" id="ivaProduct-`+a+`" value="">${result.ivacompra}</label>
+			                <label class="" id="ivaTotalProduct-`+a+`" value="">0</label>
 						</div>
 						`;
 						document.getElementById('tProductos').appendChild(dato);

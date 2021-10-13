@@ -9,14 +9,20 @@
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jusuario.js"></script>
     <title>Reportes</title>
-    <link rel="stylesheet" href="css/menu.css"> 
+	<link rel="stylesheet" href="css/formulariosR.css">
+<link rel="stylesheet" href="css/dTable.css">
+    <%--<link rel="stylesheet" href="css/menu.css"> 
     <link rel="stylesheet" href="css/formulariosTodos.css">
-    <link rel="stylesheet" href="css/tablasTodas.css">
+    <link rel="stylesheet" href="css/tablasTodas.css"> --%>
 </head>
-<body>
+<body><% 
+	HttpSession lcs=request.getSession();
+	
+		
+	%>
 	<header class="cont-header" id="cont-header">
         <div class="logo-titulo" id="logo-titulo">
-            <h1 class="h1" id="h1">Usuarios</h1>
+            <h1 class="h1" id="h1">Reportes</h1>
         </div>
 	    <nav class="nav">
 	        <ul>
@@ -26,58 +32,47 @@
 	            <li><a href="productos.jsp">Productos</a></li>
 	            <li><a href="ventas.jsp">Ventas</a></li>
 	            <li><a href="reportes.jsp">Reportes</a></li>
+				<li><a href="login.html">Cerrar Sesion</a></li>
 	        </ul>
 	    </nav>
     </header>
 	<main>
-	
-		<form action="">
-			<input type="button" name="btnlist" value="Listado de Usuarios" class="btn-formularios" id="list">
-		</form>
-		<table id="tabla">
-			<thead>
-				<tr id="encabezados">
-					<th>Cedula Usuario</th>
-					<th>Email Usuario</th>
-					<th>Nombre Usuario</th>
-					<th>Password</th>
-					<th>Usuario</th>
-				</tr>
-			</thead>
-			<tbody id="datos">
-			</tbody>
-		</table>
-		<form action="">
-			<input type="button" name="btnlist" value="Listado de Clientes" class="btn-formularios" id="listc">
-		</form>
-		<table id="tablac">
-			<thead>
-				<tr id="encabezados">
-					<th>Cedula Cliente</th>
-					<th>Direccon CLiente</th>
-					<th>Email Cliente</th>
-					<th>Nombre Cliente</th>
-					<th>Telefono CLiente</th>
-				</tr>
-			</thead>
-			<tbody id="datosc">
-			</tbody>
-		</table>
-		<form action="">
-			<input type="button" name="btnlist" value="Ventas por Cliente" class="btn-formularios" id="listv">
-		</form>
-		<table id="tablav">
-			<caption>Total de ventas por cliente</caption>
-			<thead>
-				<tr id="encabezados">
-					<th>Cedula</th>
-					<th>Nombre</th>
-					<th>Valor total ventas</th>
-				</tr>
-			</thead>
-			<tbody id="datosv">
-			</tbody>
-		</table>
+		
+					<form action="">
+						<input type="button" name="btnlist" value="Listado de Usuarios" class="btn-formularios" id="list">
+					</form>
+					<div class="dTable" id="datos">
+						<div class="dHeading" id="encabezados">
+							<div class="dCell">Cedula Usuario</div>
+							<div class="dCell">Email Usuario</div>
+							<div class="dCell">Nombre Usuario</div>
+							<div class="dCell">Password</div>
+							<div class="dCell">Usuario</div>
+						</div>
+					</div>	
+					<form action="">
+						<input type="button" name="btnlist" value="Listado de Clientes" class="btn-formularios" id="listc">
+					</form>
+					<div class="dTable" id="datosc">
+						<div class="dHeading" id="encabezados">
+							<div class="dCell">Cedula Cliente</div>
+							<div class="dCell">Direccon CLiente</div>
+							<div class="dCell">Email Cliente</div>
+							<div class="dCell">Nombre Cliente</div>
+							<div class="dCell">Telefono CLiente</div>
+						</div>
+					</div>
+					<form action="">
+						<input type="button" name="btnlist" value="Ventas por Cliente" class="btn-formularios" id="listv">
+						<div class="dTable" id="datosv">
+							<div class="dHeading" id="encabezados">
+								<div class="dCell">Cedula</div>
+								<div class="dCell">Nombre</div>
+								<div class="dCell">Valor total ventas</div>
+							</div>
+						</div>
+					</form>
+		<%--<h1>${objCli.getNombre_usuario()}</h1> --%>
 	</main>
 </body>
 </html>

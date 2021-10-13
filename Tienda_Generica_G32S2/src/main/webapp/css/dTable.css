@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 section{
-background-color: grey;
+background-color: #4E6393;
 margin: auto;
 max-width: 700px;
 padding: 20px;
@@ -19,7 +19,10 @@ margin: auto;
 }
 
 .dTable{
+background-color: #0C204F;
+color: white;
 padding: 10;
+margin: auto;
 display: table;
 display: fixed;
 }
@@ -28,11 +31,11 @@ display: fixed;
 display: table-caption;
 text-align: center;
 font-weight: bold;
- font-size: larger;
+font-size: larger;
 }
 
 .dHeading{
-background-color: black;
+background-color: #0C204F;
 color: white;
 display: table-row;
 font-weight: bold;
@@ -51,6 +54,6 @@ padding-left: 5px;
 padding-right: 5px;
 }
 
-.dRow:nth-child(even){background-color: #f2f2f2;}
+.dRow:nth-child(even){background-color: #004080}
 
-.dRow:hover {background-color: #ddd;}
+.dRow:hover {background-color: rgb(128, 64, 64)}

@@ -10,9 +10,10 @@
     <script type="text/javascript" src="js/clienteVentas.js"></script>
     <%-- --%><script type="text/javascript" src="js/ventas.js"></script>
 	<title>Ventas</title>
-	<link rel="stylesheet" href="css/menu.css">
+	<%--<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/tablasTodas.css">
-	<%--<link rel="stylesheet" href="css/ventas.css"> --%>
+	<link rel="stylesheet" href="css/ventas.css"> --%>
+	<link rel="stylesheet" href="css/formulariosV.css">
 	<link rel="stylesheet" href="css/dTable.css">
 	<script type="text/javascript">
 		function vCalProducto(cant,item) {
@@ -104,6 +105,7 @@
 	            <li><a href="productos.jsp">Productos</a></li>
 	            <li><a href="ventas.jsp">Ventas</a></li>
 	            <li><a href="reportes.jsp">Reportes</a></li>
+				<li><a href="login.html">Cerrar Sesion</a></li>
 	        </ul>
 	    </nav>
     </header>
@@ -117,21 +119,13 @@
 		            		<div class="dCell"><label>Cedula cliente</label></div>
 		            		<div class="dCell"><input class="" name="ccBuscar" id="ccBuscar" type="text"></div>	
 		            		<div class="dCell"><input type="submit" name="btnsearch" value="Buscar" class="btn-formularios" id="btnsearchcli"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"><h1>No.</h1></div>
-		            		<div class="dCell"></div>
-		            		<div class="dCell"></div><%-- style="display: none" --%>
-							<div class="dCell"><label style="display: none" id="cedusu"><%=cedula_usuario %></label></div>
-		            		<div class="dCell" id="cedCliC"><label id="cedCli"></label></div>
+		            		<div class="dCell" style="width: 22%"></div>
+		            		<div class="dCell"><h1>No.</h1></div><%-- --%>
+							<div class="dCell" style="display: none; width: 0%"><label id="cedusu"><%=cedula_usuario %></label></div>
+		            		<div class="dCell" id="cedCliC" style="display: none; width: 0%"><label id="cedCli"></label></div>
 		            	</div>
+		            </div>
+		            <div class="dTable">
 		            	<div class="dRow">
 		            		<div class="dCell"><label>Nombre del cliente</label></div>
 						    <div class="dCell"><input type="text" name="nc" id="ncBuscar" readonly="true"></div>
@@ -142,8 +136,8 @@
 					<div class="dTable" id="cProducto">
 		            	<div class="dRow">
 		            		<div class="dCell"><label>Codigo del producto</label></div>
-		            		<div class="dCell"><select class="" id="plist"></select></div>
-		            		<div class="dCell"><input type="button" class="btnconsultar" id="psearch" value="+"></div>
+		            		<div class="dCell"><select class="selectF" id="plist"></select></div>
+		            		<div class="dCell"><input type="button" class="btn-formularios" id="psearch" value="+"></div><%--class="btnconsultar" --%>
 		            		<%--<div class="dCell"><input type="button" class="btnborrar" id="delPro" value="-" /></div> --%>
 						</div>
 					</div>
@@ -155,7 +149,7 @@
 			            	<div class="dCell">Cantidad</div>
 			            	<div class="dCell">Valor producto</div>
 			            	<div class="dCell">Valor Total</div>
-			            	<div class="dCell"></div>
+			            	<div class="dCell" style="display: none"></div>
 			            </div>
 			           <%-- <div class="dRow" id="row1">
 			            	<div class="dCell">
@@ -250,15 +244,15 @@
 				<fieldset>
 					<div class="dTable" id="enviar">
 		            	<div class="dRow">
-							<div class="dCell"><input type="button" id="confirmarVenta" value="Confirmar"></div>
-							<div class="dCell"><input type="button" id="enviarVenta" value="Enviar"></div>
+							<div class="dCell"><input type="button" class="btn-formularios" id="confirmarVenta" value="Confirmar"></div>
+							<div class="dCell"><input type="button" class="btn-formularios" id="enviarVenta" value="Enviar"></div>
 						</div>
 					</div>	
             	</fieldset>
             </form>
         </section>
 
-<%-- TABLA DONDE SE CARGAN LOS PRODUCTOS --%>	
+<%-- TABLA DONDE SE CARGAN LOS PRODUCTOS 	
         <section class="tabla">
           <table class="dtable">
             <thead class="dHeading">
@@ -280,7 +274,7 @@
               </tr>
             </thead>
           </table>
-        </section>
+        </section>--%>
 	</main>
 </body>
 </html>

@@ -9,8 +9,8 @@
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/productos.js"></script>
     <title>Productos</title>
-    <link rel="stylesheet" href="css/menu.css"> 
-    <link rel="stylesheet" href="css/formulariosTodos.css">
+    <%--<link rel="stylesheet" href="css/menu.css">  --%>
+    <link rel="stylesheet" href="css/formulariosP.css">
 </head>
 <body>
 	
@@ -48,46 +48,66 @@
 	            <li><a href="productos.jsp">Productos</a></li>
 	            <li><a href="ventas.jsp">Ventas</a></li>
 	            <li><a href="reportes.jsp">Reportes</a></li>
+				<li><a href="login.html">Cerrar Sesion</a></li>
 	        </ul>
 	    </nav>
     </header>
     <main>
-    
-    	<fieldset class="cont-formcsv" style="width: 35%">
-			<%-- --%>
-			<form class="upload" action="ServletProductos" method="post" enctype="multipart/form-data" id="uploadCsv">
-				<input type="file" name="archivo" value="Examinar" id="archivoCsv">
-				<input type="submit" name="cargar" value="cargar" id="cargar">
-			</form>
-			<div id="mensaje"></div>
-		</fieldset>
-		
-		<fieldset class="cont-formactualizar" style="width: 25%">
-			<form action="" method="post">
-				<label>Codigo Del Producto</label>
-				<input type="text" name="cp" id="cpa">
-				<label>Iva</label>
-				<input type="text" name="iv" id="iva">
-				<label>Nit Del Proveedor</label>
-				<input type="text" name="ni" id="nia">
-				<label>Nombre Del Producto</label>
-				<input type="text" name="np" id="npa">
-				<label>Precio De Compra</label>
-				<input type="text" name="pc" id="pca">
-				<label>Precio De Venta</label>
-				<input type="text" name="pv" id="pva">
-				<input type="button" name="btnupdate" value="Actualizar" class="btn-formularios" id="btnupdate">	
-			</form>
-		</fieldset>
-		
-		<fieldset class="cont-formproductos" style="width: 25%">
-			<form action="" method="post">
-				<label>Codigo Del Producto</label>
-				<input type="text" name="cp" value="<%=cp%>" id="cp">
-				<input type="button" name="btnsearch" value="Buscar" class="btn-formularios" id="psearch">	
-			</form>
-			<form action="" id="datos"></form>
-		</fieldset>
+    	<section>
+	    	<div class="tabs">
+	            <div class="tab">
+	                <input type="radio" id="tab-1" name="tab-group-1" checked/>
+	                <label id="cargar" for="tab-1">Cargar</label>
+		            <div class="content cargar">
+			    	<fieldset class="containers">
+						<form class="upload" action="ServletProductos" method="post" enctype="multipart/form-data" id="uploadCsv">
+							<label>Cargar archivo CSV</label>
+							<input type="file" name="archivo" value="Examinar" id="archivoCsv">
+							<input type="submit" name="cargar" value="cargar" id="cargar" class="btn-formularios">
+						</form>
+						<div id="mensaje"></div>
+					</fieldset>
+		            </div>
+		        </div>
+	            <div class="tab">
+	                <input type="radio" id="tab-2" name="tab-group-1"/>
+	                <label id="actualizar" for="tab-2">Actualizar</label>
+		            <div class="content actualizar">
+					<fieldset class="containers">
+						<form action="" method="post">
+							<label>Codigo Del Producto</label>
+							<input type="text" name="cp" id="cpa">
+							<label>Iva</label>
+							<input type="text" name="iv" id="iva">
+							<label>Nit Del Proveedor</label>
+							<input type="text" name="ni" id="nia">
+							<label>Nombre Del Producto</label>
+							<input type="text" name="np" id="npa">
+							<label>Precio De Compra</label>
+							<input type="text" name="pc" id="pca">
+							<label>Precio De Venta</label>
+							<input type="text" name="pv" id="pva">
+							<input type="button" name="btnupdate" value="Actualizar" class="btn-formularios" id="btnupdate">	
+						</form>
+					</fieldset>
+		            </div>
+		        </div>
+	            <div class="tab">
+	                <input type="radio" id="tab-3" name="tab-group-1"/>
+	                <label for="tab-3" id="consultar">Consultar</label>
+		            <div class="content consultar">
+					<fieldset class="containers">
+						<form action="" method="post">
+							<label>Codigo Del Producto</label>
+							<input type="text" name="cp" value="<%=cp%>" id="cp">
+							<input type="button" name="btnsearch" value="Buscar" class="btn-formularios" id="psearch">	
+						</form>
+					<form action="" id="datos"></form>
+					</fieldset>
+		            </div>
+		        </div>
+	        </div>
+        </section>
 	</main>
 </body>
 </html>

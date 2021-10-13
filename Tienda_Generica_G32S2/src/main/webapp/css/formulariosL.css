@@ -1,0 +1,419 @@
+@charset "utf-8";
+
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address,
+	form, fieldset, blockquote {
+	padding: 0%;
+	margin: 0%;
+	font-size: 100%;
+	font-weight: normal;
+}
+
+body{
+    background-color: #4E6393;
+}
+
+q:before, q:after {
+	content: '';
+}
+
+.cont-header {
+	background: #0C204F;
+	background-size: cover;
+	display: flex;
+	justify-content: space-between;
+	height: 100px;
+}
+
+.logo-titulo {
+	background-color:#0C204F;
+	display: flex;
+	align-items: center;
+	width: 30%;
+}
+
+.h1 {
+    color: #FBFEA5;
+	background-color: #0C204F;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 50px;
+	margin-left: 10%;
+}
+
+
+.nav {
+	background-color: 0;
+	float: right;
+}
+
+
+li {
+	display: inline;
+	margin-right: 20px;
+}
+
+ul {
+	margin-top: 60px;
+	margin-right: 20px;
+	background-color: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #FBFEA5;
+	font-weight: bold;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		font-size: 1em;
+	transition: 0.2s all;
+}
+
+a:hover{
+	color: #FBA3A7;
+	text-decoration: underline;
+	font-size: 1.05em;
+}
+
+ul {
+	padding-left: 1.4em;
+	list-style: square;
+}
+    
+.tabs{
+    background-color: #981F25;
+    color: #FBFEA5;
+    font-weight: lighter;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 2px;
+    font-size: 1em;
+    margin-top: 20px;
+    margin-left: 450px;
+    width: 31%;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+}
+
+.tab label {
+    padding: 5px 10px;
+    border-radius: 15px 5px 0 0;
+}
+
+.containers{
+    border: 0;
+    background-color: 0;
+    margin-left: 450px;
+    width: 500px;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.containers label{
+    color: #FBFEA5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+	font-size: 1.5em;
+    font-weight: bold;
+}
+
+.btn-formularios{
+    margin-top: 5%;
+    margin-left: 35%;
+    background: #74050B;
+	color: #FBFEA5;
+	width: 130px;
+	height: auto;
+    border-radius: 5px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+	font-size: 1em;
+    letter-spacing: 2px;
+}
+.btn-formularios:hover {
+	background: #FBFEA5;
+	color: #74050B;
+}
+
+input {
+	display: block;
+	width: 95%;
+    margin: 2%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-weight: bold;
+    font-size: 16px;
+	line-height: 30px;
+	color: #74050B;
+    background: #FBFEA5;
+    border: 1px solid #D8666C;
+    border-radius: 2px;
+}
+
+.tab [type='radio'] {
+    display: none;
+}
+
+.content {
+    width: 100%;
+    border-radius: 0px 10px 10px 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+[type='radio']:checked ~ label ~ .content {
+    z-index: 1;
+}
+
+[type="radio"]:checked ~ label {
+    background: #74050B;
+}
+
+form{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0;
+    height: 340px;
+    background-color: #981F25;
+}
+pre{
+    color: #FBFEA5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+	font-size: 1.5em;
+    font-weight: bold;
+}
+#datos{
+	margin-top: -420px;
+    height: 1px;
+}
+
+#wrapper{
+	padding: 80px 6%;
+}
+
+#wrapper span{
+	border: 1px solid #000;
+}
+
+#wrapper > div{
+	width: 33%;
+	min-width: 280px;
+}
+
+/* Clases para los contenedores de Radio y Checkbox*/
+.content-input{
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+
+.content-input{
+	position: relative;
+	color: #333;
+	margin-bottom: 30px;
+	padding:5px 0 5px 60px;
+	display: block;
+}
+
+/* 
+La propiedadd appearance da un aspecto standard a un elemento.
+Por ejemplo: appearance: button
+Como vamos a personalizar nuestros elemento aÃ±adimos el valor none
+ */
+.content-input input{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+
+.content-input i,
+.content-input i:before{
+	transition: all 0.25s ease;
+}
+
+/* 
+Ocultamos nuestros inputs.
+Con opacity 0. Si utilizamos visibility:hidden o display:none;
+no funcionarÃ­an
+*/
+.content-input input{
+	visibility: hidden;
+	position: absolute;
+	right: 0;
+}
+
+/*
+Propiedades para cualquier el elmento i despuÃ©s de un input
+dentro de la capa .content-input
+*/
+.content-input input + i{
+	background: #f0f0f0;
+	border:2px solid rgba(0,0,0,0.2);
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/*
+Propiedades para el checkbox
+*/
+.content-input input[type=checkbox ] + i{
+	width: 52px;
+	height: 30px;
+	border-radius: 15px;
+}
+
+/*
+Propiedades para radio
+*/
+.content-input input[type=radio] + i{
+	height: 30px;
+	width: 30px;
+	border-radius: 100%;
+	left: 15px;
+}
+
+
+/*
+Creamos el cÃ­rculo que aparece encima de los checkbox
+con la etqieta before. Importante aunque no haya contenido
+debemos poner definir este valor.
+*/
+.content-input input[type=checkbox] + i:before{
+	content: ''; /* No hay contenido */
+	width: 26px;
+	height: 26px;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 1;
+	left: 0px;
+	top: 0px;
+	-webkit-box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+}
+
+
+.content-input input[type=checkbox] + i:after{
+	content: 'ON';
+	position: absolute;
+	font-size: 10px;
+	color: rgba(255,255,255,0.6);
+	top: 8px;
+	left: 4px;
+	opacity: 0;
+	transition: all 0.25s ease 0.25s;
+}
+
+/*
+Creamos el cÃ­culo que se mostrarÃ¡ cuando hagamos click 
+en cualquier radio y lo ocultamos con opacity 0
+*/
+.content-input input[type=radio] + i:before{
+	content: '';
+	display: block;
+	height: 18px;
+	width: 18px;
+	background: red;
+	border-radius: 100%;
+	position: absolute;
+	z-index: 1;
+	top: 4px;
+	left: 4px;
+	background:#2AC176;
+	transition: all 0.25s ease;
+	transform: scale(0);
+	opacity: 0; /* Lo ocultamos*/
+}
+
+
+
+.content-input:hover input[type=radio]:not(:checked) + i,
+.content-input:hover input[type=checkbox]:not(:checked) + i{
+	background: #FBFEA5;
+}
+
+
+
+/*
+Con :checked definimos los valores css cuando un input
+como radio o checkbox estÃ¡ checheado
+*/
+.content-input input[type=checkbox]:checked + i{
+	background: #2AC176;
+}
+
+.content-input input[type=checkbox]:checked + i:before{
+	left: 22px;
+	-webkit-box-shadow: -3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 -3px 0 rgba(0,0,0,0.2);
+}
+
+.content-input input[type=checkbox]:checked + i:after{
+	opacity: 1;
+}
+
+.content-input input[type=radio]:checked + i:before{
+	transform: scale(1);
+	opacity: 1;
+}
+
+/* Select */
+.selectF select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.selectF{
+	max-width: 250px;
+	position: relative;
+}
+
+.selectF select{
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 1em;
+	color: #999;
+	font-family: 
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.selectF select:hover{
+	background: #B1E8CD;
+}
+
+/* 
+Creamos la fecha que aparece a la izquierda del select.
+Realmente este elemento es un cuadrado que sÃ³lo tienen
+dos bordes con color y que giramos con transform: rotate(-45deg);
+*/
+.selectF i{
+	position: absolute;
+	right: 20px;
+	top: calc(50% - 13px);
+	width: 16px;
+	height: 16px;
+	display: block;
+	border-left:4px solid #2AC176;
+	border-bottom:4px solid #2AC176;
+	transform: rotate(-45deg); /* Giramos el cuadrado */
+	transition: all 0.25s ease;
+}
+
+.selectF i{
+	margin-top: 3px;
+}
+
+/* Eliminamos la fecha que por defecto aparece en el desplegable */
+.selectF select::-ms-expand {
+    display: none;
+}
+
+
