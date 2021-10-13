@@ -12,11 +12,11 @@ public class ConnectionDB {
 		
 		try {
 			
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("org.mariadb.jdbc.Driver");
 			
 			try {
 				
-				cnx=DriverManager.getConnection("jdbc:mysql://localhost/bd_G32_EQUIPO_2","root","");
+				cnx=DriverManager.getConnection("jdbc:mysql://tiendagenericagrupo43-10-32.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/bd_G32_EQUIPO_2","admin","123456789");
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
