@@ -1,6 +1,8 @@
 package model;
 
-public class Clientes {
+import java.io.Serializable;
+
+public class Clientes implements Serializable {
 	
 	private Float cedula_cliente;
 	private String direccion_cliente;

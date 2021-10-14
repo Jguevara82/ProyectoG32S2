@@ -129,12 +129,10 @@ public class ServletCRUDClientes extends HttpServlet {
 			if (bt.equals("btnlist")) {
 				
 				Gson gs=new Gson();
-				listCli=new ArrayList<>();
 				clc=new ClientesCRUD();
-				listCli=clc.listarclientes();
-				
+				listCli=new ArrayList<Clientes>(clc.listarclientes());
 				lc.setAttribute("objCli", listCli);
-	
+				
 				pw.println(gs.toJson(listCli));
 			}
 		}

@@ -105,7 +105,7 @@
 	            <li><a href="productos.jsp">Productos</a></li>
 	            <li><a href="ventas.jsp">Ventas</a></li>
 	            <li><a href="reportes.jsp">Reportes</a></li>
-				<li><a href="login.html">Cerrar Sesion</a></li>
+				<li><a href="login.html">Cerrar Sesión</a></li>
 	        </ul>
 	    </nav>
     </header>

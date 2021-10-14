@@ -45,7 +45,7 @@ $.ajax({
 			let datos=document.createElement('div');
 			datos.setAttribute('class','dRow');
 			datos.innerHTML='';
-			datos.innerHTML+=`<div class="dCell">${i.cedula_cliente}</div><div class="dCell">${i.direccion_cliente}</div><div class="dCell">${i.email_cliente}</div><div class="dCell">${i.nombre_cliente}</div><div class="dCell">${i.telefono_cliente}</div>`;
+			datos.innerHTML+=`<div class="dCell">${i.cedula_cliente}</div><div class="dCell">${i.direccion_cliente}</div><div class="dCell">${i.email_cliente}</div><div class="dCell">${i.nombre_usuario}</div><div class="dCell">${i.telefono_cliente}</div>`;
 			document.getElementById('datosc').appendChild(datos);
 			document.getElementById('datosc').appendChild(datos);
 		}
@@ -164,7 +164,7 @@ $('#listv').on('click', function(){
 				let datos=document.createElement('div');
 				datos.setAttribute('class','dRow');
 				datos.innerHTML='';
-				datos.innerHTML+=`<div class="dCell">${i.cedula_cliente}</div><div class="dCell"></div><div class="dCell">${i.total_venta}</div>`;
+				datos.innerHTML+=`<div class="dCell">${i.cedula_cliente}</div><div class="dCell">${i.nombre_cliente}</div><div class="dCell">${i.valor}</div>`;
 				document.getElementById('datosv').appendChild(datos);
 				document.getElementById('datosv').appendChild(datos);
 				}

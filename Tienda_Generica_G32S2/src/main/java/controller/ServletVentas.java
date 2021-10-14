@@ -14,10 +14,12 @@ import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
 
+import model.ConsultaVentasXCliente;
 import model.DetalleVentas;
 import model.DetalleVentasCRUD;
 import model.UsuarioCRUD;
 import model.Usuarios;
+import model.VentaCliente;
 import model.Ventas;
 import model.VentasCRUD;
 
@@ -70,7 +72,8 @@ public class ServletVentas extends HttpServlet {
 		DetalleVentas dvn;
 		DetalleVentasCRUD dvc;
 		
-		ArrayList<Ventas> listV=new ArrayList<>();
+		ConsultaVentasXCliente consulta;
+		ArrayList<VentaCliente> listV=new ArrayList<VentaCliente>();
 		
 		Gson gs=new Gson();
 		
@@ -169,9 +172,8 @@ public class ServletVentas extends HttpServlet {
 		
 		if(bt.equals("listVen")) {
 			
-			ve=new Ventas();
-			vc=new VentasCRUD();
-			listV=vc.listarVentas(ve);
+			consulta=new ConsultaVentasXCliente();
+			listV=consulta.ConsultarVentas();
 			
 			pw.println(gs.toJson(listV));
 			
