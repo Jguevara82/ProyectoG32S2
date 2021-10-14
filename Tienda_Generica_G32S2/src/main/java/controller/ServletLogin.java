@@ -54,13 +54,13 @@ public class ServletLogin extends HttpServlet {
 				cedUsu.setAttribute("objUsu", usu);
 				
 				if (usu.getCedula_usuario() != null) {
-					JOptionPane.showMessageDialog(null, "usuario y clave correctos");
-					response.sendRedirect("menu.html");
+					//JOptionPane.showMessageDialog(null, "usuario y clave correctos");
+					response.sendRedirect("menu.jsp");
 				}
 			}
 			catch(Exception e) {
-				JOptionPane.showMessageDialog(null, "usuario y/o clave incorrectos");
-				response.sendRedirect("login.html");
+				//JOptionPane.showMessageDialog(null, "usuario y/o clave incorrectos");
+				response.sendRedirect("index.jsp");
 			}
 		}
 	}
