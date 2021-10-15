@@ -4,7 +4,7 @@
 $(document).ready(function(){
 
 //1 carga de archivo csv
-/*$("#cargar").on('click', function(){
+$("#cargar").on('click', function(){
 		
 	$('#uploadCsv').ajaxForm({
             success: function(result) {
@@ -15,11 +15,12 @@ $(document).ready(function(){
             }
 	});
 
-});	*/	
+});	
 
-	
+//2 añadir producto
 
-//2 actualizacion modificacion	
+
+//3 actualizacion modificacion	
 	
 $("#btnupdate").on('click', function(){
 	
@@ -44,7 +45,7 @@ $("#btnupdate").on('click', function(){
 
 });
 	
-//3 busqueda consulta
+//4 busqueda consulta
 
 $('#psearch').on('click', function(){
 		
@@ -82,7 +83,7 @@ $('#psearch').on('click', function(){
 });	
 	
 	
-//4 listado	
+//5 listado	
 	
 	
 $("#btnlist").on('click', function(){

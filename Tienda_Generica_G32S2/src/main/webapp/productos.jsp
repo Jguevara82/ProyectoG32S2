@@ -69,6 +69,29 @@
 					</fieldset>
 		            </div>
 		        </div>
+		        <div class="tab">
+	                <input type="radio" id="tab-2" name="tab-group-1"/>
+	                <label id="actualizar" for="tab-2">Añadir</label>
+		            <div class="content actualizar">
+					<fieldset class="containers">
+						<form action="" method="post">
+							<label>Codigo Del Producto</label>
+							<input type="text" name="cp" id="cpc">
+							<label>Iva</label>
+							<input type="text" name="iv" id="ivac">
+							<label>Nit Del Proveedor</label>
+							<input type="text" name="ni" id="nitc">
+							<label>Nombre Del Producto</label>
+							<input type="text" name="np" id="npc">
+							<label>Precio De Compra</label>
+							<input type="text" name="pc" id="pcc">
+							<label>Precio De Venta</label>
+							<input type="text" name="pv" id="pvc">
+							<input type="button" name="btnadd" value="AÑADIR" class="btn-formularios" id="btnadd">	
+						</form>
+					</fieldset>
+		            </div>
+		        </div>
 	            <div class="tab">
 	                <input type="radio" id="tab-2" name="tab-group-1"/>
 	                <label id="actualizar" for="tab-2">Actualizar</label>
