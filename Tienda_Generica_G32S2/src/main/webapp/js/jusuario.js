@@ -3,6 +3,15 @@
  */
 $(document).ready(function(){
 	
+//botones reportes
+	
+var botonu=document.getElementById('list');
+botonu.disabled=false;	
+var botonc=document.getElementById('listc');
+botonc.disabled=false;	
+var botonv=document.getElementById('listv');
+botonv.disabled=false;
+	
 //Lista usuario
 
 $('#list').on('click',function(){
@@ -23,6 +32,7 @@ $.ajax({
 			datos.innerHTML+=`<div class="dCell">${i.cedula_usuario}</div><div class="dCell">${i.email_usuario}</div><div class="dCell">${i.nombre_usuario}</div><div class="dCell">${i.password}</div><div class="dCell">${i.usuario}</div>`;
 			document.getElementById('datos').appendChild(datos);
 		}
+		botonu.disabled=true;
 	}
 });
 
@@ -49,6 +59,7 @@ $.ajax({
 			document.getElementById('datosc').appendChild(datos);
 			document.getElementById('datosc').appendChild(datos);
 		}
+		botonc.disabled=true;
 	}
 });
 
@@ -167,7 +178,8 @@ $('#listv').on('click', function(){
 				datos.innerHTML+=`<div class="dCell">${i.cedula_cliente}</div><div class="dCell">${i.nombre_cliente}</div><div class="dCell">${i.valor}</div>`;
 				document.getElementById('datosv').appendChild(datos);
 				document.getElementById('datosv').appendChild(datos);
-				}
+			}
+			botonv.disabled=true;
 			/*if(Object.keys(result).length==6){
 				datos.innerHTML+=`<tr><td>${result.cedula_cliente}</td><td></td><td>${result.total_venta}</td></tr>`;
 			}else{
