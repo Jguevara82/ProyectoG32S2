@@ -37,31 +37,31 @@
 	    </nav>
     </header>
 	<main>
-		
+		<div class="containers">
 					<form action="">
 						<input type="button" name="btnlist" value="Listado de Usuarios" class="btn-formularios" id="list">
+						<div class="dTable" id="datos">
+							<div class="dHeading" id="encabezados">
+								<div class="dCell">Cedula Usuario</div>
+								<div class="dCell">Email Usuario</div>
+								<div class="dCell">Nombre Usuario</div>
+								<div class="dCell">Password</div>
+								<div class="dCell">Usuario</div>
+							</div>
+						</div>	
 					</form>
-					<div class="dTable" id="datos">
-						<div class="dHeading" id="encabezados">
-							<div class="dCell">Cedula Usuario</div>
-							<div class="dCell">Email Usuario</div>
-							<div class="dCell">Nombre Usuario</div>
-							<div class="dCell">Password</div>
-							<div class="dCell">Usuario</div>
-						</div>
-					</div>	
 					<form action="">
 						<input type="button" name="btnlist" value="Listado de Clientes" class="btn-formularios" id="listc">
-					</form>
-					<div class="dTable" id="datosc">
-						<div class="dHeading" id="encabezados">
-							<div class="dCell">Cedula Cliente</div>
-							<div class="dCell">Direccon CLiente</div>
-							<div class="dCell">Email Cliente</div>
-							<div class="dCell">Nombre Cliente</div>
-							<div class="dCell">Telefono CLiente</div>
+						<div class="dTable" id="datosc">
+							<div class="dHeading" id="encabezados">
+								<div class="dCell">Cedula Cliente</div>
+								<div class="dCell">Direccon CLiente</div>
+								<div class="dCell">Email Cliente</div>
+								<div class="dCell">Nombre Cliente</div>
+								<div class="dCell">Telefono CLiente</div>
+							</div>
 						</div>
-					</div>
+					</form>
 					<form action="">
 						<input type="button" name="btnlist" value="Ventas por Cliente" class="btn-formularios" id="listv">
 						<div class="dTable" id="datosv">
@@ -72,6 +72,7 @@
 							</div>
 						</div>
 					</form>
+		</div>
 		<%--<h1>${objCli.getNombre_usuario()}</h1> --%>
 	</main>
 </body>
