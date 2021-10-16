@@ -16,7 +16,7 @@
 	<section>
 	<header class="cont-header" id="cont-header">
 		<div class="logo-titulo" id="logo-titulo">
-			<h1 class="h1" id="h1">Tienda Generica</h1>
+			<img alt="logo" src="icons/pluginlogo (1).png">
 		</div>
 	</header>
 	<div class="tabs">
@@ -27,7 +27,7 @@
 	<fieldset class="containers">
 		
 		<form action="ServletLogin" method="GET">
-			<label>Bienvenidos</label>
+			<label>Bienvenidos a Plug-In</label>
 			<div><br></div>
 			<label for="usu">Usuario</label>
 			<input type="text" name="usu" id="usu" placeholder="Digite su usuario" required="true">

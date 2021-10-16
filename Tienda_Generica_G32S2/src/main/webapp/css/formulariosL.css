@@ -17,7 +17,7 @@ q:before, q:after {
 }
 
 .cont-header {
-	background: #0C204F;
+	background: #981F25;
 	background-size: cover;
 	display: flex;
 	justify-content: space-between;
@@ -25,9 +25,15 @@ q:before, q:after {
 }
 
 .logo-titulo {
-	background-color:#0C204F;
+	background-color:#981F25;
 	display: flex;
 	align-items: center;
+	width: 30%;
+}
+
+img{
+	margin-top: 0px;
+	margin-left: 630px;
 	width: 30%;
 }
 
